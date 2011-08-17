@@ -1,0 +1,121 @@
+##
+# ~/.mutt/muttrc
+###
+
+# directories and commands
+set alias_file          = ~/.mutt/aliases                         # alias file
+set header_cache        = ~/.mutt/cache/headers                 # where to store headers        
+set message_cachedir    = ~/.mutt/cache/bodies                  # where to store bodies
+set certificate_file    = ~/.mutt/certificates                  # where to store certs
+set mailcap_path        = /home/raph/.mutt/mailcap                       # entrys for filetypes
+#set signature           = ~/.mutt/sig                           # my signature file
+set tmpdir              = ~/.mutt/temp                          # where to keep temp files
+set editor              = "/usr/bin/vim +/^$"                   # use vim and skip to first blank line
+set ispell              = "/usr/bin/aspell -e -c"               # use aspell as ispell
+#set print_command       ="muttprint"
+set print_command       ="lpr -PKonica-PHARE-COMNET-BW"
+set query_command = "lbdbq '%s'"
+
+# main options
+set mbox_type           = Maildir                               # mailbox type
+set folder              = ~/Mail                                # mailbox location
+set spoolfile           = "+Lip6/INBOX"                        #  default inbox
+set timeout             = 3                                     # idle time before scanning
+set mail_check          = 0                                     # minimum time between scans
+set sort_alias          = alias                                 # sort alias file by alias
+set reverse_alias                                               # show names from alias file in index
+#unset move                                                      # gmail does that
+set delete                                                      # don't ask, just do
+unset confirmappend                                             # don't ask, just do!
+set quit                                                        # don't ask, just do!!
+unset mark_old                                                  # read/new is good enough for me
+set beep_new                                                    # bell on new mails
+set pipe_decode=no # required by muttils
+set thorough_search                                             # strip headers and eval mimes before searching
+
+# index options
+set sort                = threads                               # like gmail 
+#set sort_aux            = reverse-last-date-received            # like gmail
+set uncollapse_jump                                             # don't collapse on an unread message 
+set sort_re                                                     # thread based on regex
+set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# pager options
+set pager_index_lines   = 10                                    # number of index lines to show 
+set pager_context       = 5                                     # number of context lines to show
+set pager_stop                                                  # don't go to next message automatically
+set menu_scroll                                                 # scroll in menus 
+set smart_wrap                                                  # don't split words
+set tilde                                                       # show tildes like in vim
+unset markers                                                   # no ugly plus signs
+#auto_view text/html                                             # view html automatically
+alternative_order text/plain text/enriched text/html            # save html for last
+set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+# formats
+set date_format         = "%d/%m/%y %R"
+set index_format        = "%4C %Z %D  %-20.20F %s %> %4c"
+#set index_format        = "%4C %Z %{%b %d} %-15.15L (%4c) %s"
+#
+set folder_format="%2C %t %N %f %> %4s %d" 
+#set folder_format="%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f" # default
+#set status_format       = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>- (%P) ---"
+set alias_format        = "%4n %t %-20a  %r"
+
+# composing mail
+set realname            = "Raphaël Fournier"                     # who am i?
+set envelope_from                                               # which from?
+set sig_dashes                                                  # dashes before my sig... sweet
+set sig_on_top                                                  # signature above quoted reply
+#set edit_headers                                                # show headers when composing
+set fast_reply                                                  # skip to compose when replying
+#set sendmail_wait       = -1                                    # don't wait for sending... to complete
+set askcc                                                       # ask for CC:
+set fcc_attach                                                  # save attachments with the body
+unset mime_forward                                              # forward attachments as part of body
+set forward_format      = "Re: %s"                             # format for subject when forwarding
+set forward_decode                                              # decode when forwarding
+set mime_forward=yes
+set mime_forward_rest=yes
+set attribution         = "Le %d, %n a écrit:"                    # set the attribution
+#set reply_to                                                    # reply to Reply to: field
+set reverse_name                                                # reply as whomever it was to
+set include                                                     # include message in replies
+set forward_quote                                               # include message in forwards
+set reverse_name = yes
+alternates raphael.fournier@complexnetworks.lip6.fr|raphael@raphaelfournier.net
+
+# headers to show
+ignore *                                                        # ignore all headers
+unignore from: to: cc: date: subject:                           # show only these
+hdr_order from: to: cc: date: subject:                          # and in this order
+
+# boxes
+#mailboxes +Rfnet/INBOX +Rfnet/Archives +Rfnet/Drafts +Rfnet/Sent +Rfnet/Trash
+mailboxes "/var/spool/mail/raph"
+mailboxes `find ~/Mail/Lip6/* -type d | grep -v "tmp\|new\|cur\|2010\/" |xargs`
+mailboxes `find ~/Mail/Lavabit/* -type d | grep -v "tmp\|new\|cur" |xargs`
+mailboxes `find ~/Mail/Rfnet -type d | grep -v "tmp\|new\|cur" |xargs`
+mailboxes +mfolder
+
+# always sourced
+source ~/.mutt/muttrc.bindings
+source $alias_file                                              # required for functionality
+source ~/.mutt/lip6.muttrc                                      # defaut account
+source ~/.mutt/colors.zenburn                                    # source colors file
+#source ~/.mutt/colors.default
+#source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
+
+# account specific sources
+folder-hook Lip6/* source ~/.mutt/lip6.muttrc
+folder-hook Lavabit/* source ~/.mutt/lavabit.muttrc
+folder-hook Rfnet/* source ~/.mutt/rfnet.muttrc
+folder-hook . "push <last-entry><current-middle>"
+
+# ???
+attachments   +A */.*
+attachments   -A text/x-vcard application/pgp.*
+attachments   -A application/x-pkcs7-.*
+attachments   +I text/plain
+attachments   -A message/external-body
+attachments   -I message/external-body
