@@ -1,0 +1,30 @@
+#text/html; iron '%s'; description=HTML Text; test=test -n "$DISPLAY"; needsterminal
+application/x-java-jnlp-file;/opt/java/jre/bin/javaws %s
+#text/html; opera '%s'; description=HTML Text; test=test -n "$DISPLAY"; needsterminal
+#text/html; /usr/bin/firefox -remote %s; description=HTML Text; test=test -n "$DISPLAY"; nametemplate=%s.html 
+text/html;/usr/bin/firefox %s;
+#text/html; lynx -dump %s; copiousoutput; nametemplate=%s.html
+#text/html;/usr/bin/links %s; needsterminal
+#application/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+application/pdf; /usr/bin/evince %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+image/gif; firefox %s
+image/*; feh %s
+video/*; mplayer %s
+#
+application/vnd.oasis.opendocument.text; soffice %s; test=test "$DISPLAY" != ""; 
+# powerpoints
+application/vnd.ms-powerpoint; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.ppt
+application/x-mspowerpoint; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.ppt
+application/ppt; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.ppt
+# excel
+application/vnd.ms-excel; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
+application/x-msexcel; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
+application/x-excel; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
+application/msexcel; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
+application/ms-Excel; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
+application/excel; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
+application/xls; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
+#word
+application/vnd.msword; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc
+application/msword; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc
+application/doc; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc
