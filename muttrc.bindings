@@ -1,0 +1,50 @@
+# Command bind :
+# Syntax: bind <map> <key> <function>
+# Values for <map>:
+# generic, alias, attach, browser, editor, index, compose, pager, pgp, postpone
+# Special values for <key>: \t, <tab>, \r, \n, \e, <esc>, <up>, <down>, 
+#   <left>, <right>, <pageup>, <pagedown>, <backspace>, <delete>, 
+# <insert>, <enter>, <home>, <end>, <space>, <f1>,...,<f10>
+#
+# Take care, there are some defaults hardcoded in keymap.c:km_init()
+# Most defaults (Op*) are defined in functions.h.
+
+# macros
+#macro index \Cr "<tag-prefix><clear-flag>N" "mark tagged messages as read"
+macro index B   "<limit>~b "                "search message bodies"
+macro index \Cf "<limit>~F<enter><current-middle>"
+macro index \Ca "<limit>all<enter><current-middle>"
+macro attach s <save-entry><kill-line>~/Mail/Attachments/ "save attachments in ~/Mail/Attachments" 
+bind index zt current-top
+bind index zz current-middle
+bind index zb current-bottom
+# quick-sync ~/Mail immediately with offlineimap
+macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o<enter>" "sync IMAP"
+# FIX for Rxvt-unicode backspace binding
+bind pager \c? previous-line
+# eviter les print intempestifs
+bind pager,index P print-message
+bind pager,index p noop
+
+macro generic,pager,index <f1> "!links /usr/share/doc/mutt/manual.html" "Show Mutt documentation"
+macro pager,index,generic <f2> ":set sendmail=\"/usr/bin/msmtp -a lip6\""
+macro pager,index,generic <f3> ":set sendmail=\"/usr/bin/msmtp -a lip6-ext\""
+macro pager,index,generic <f4> ":set sendmail=\"/usr/bin/msmtp -a lavabit\""
+macro pager,index,generic <f5> ":set sendmail=\"/usr/bin/msmtp -a google\""
+macro pager,index,generic <f6> "<change-folder>+Lip6/INBOX<enter>"
+macro pager,index,generic <esc><f6> "<change-folder>+Lip6/Sent<enter>"
+macro pager,index,generic <f7> "<change-folder>+Lavabit/Inbox<enter>"
+macro pager,index,generic <esc><f7> "<change-folder>+Lavabit/Sent<enter>"
+macro pager,index,generic <f8> "<change-folder>+Rfnet/INBOX<enter>"
+macro pager,index,generic <esc><f8> "<change-folder>+Rfnet/Sent<enter>"
+macro pager,index,generic <f9> "<change-folder>+Rfnet/MLEnsica<enter>"
+macro pager,index,generic <f10> ":set print_command =\"muttprint -pDCP7030\""
+macro generic ,s "<enter-command>set my_cmd = \`$HOME/.mutt/mairix_search\`<return><enter-command>push \$my_cmd<return>" "search messages"
+#macro index <F11> \
+#          "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+#          "search mail (using notmuch)"
+#    macro index <F12> \
+#          "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>~/.mutt/mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" "search and reconstruct owning thread (using notmuch)"
+#set resolve=no # no = ne passe pas au message suivant apres un clearflag
+#macro pager,index,generic "s" "<clear-flag>N<save-message>"
+source ~/.mutt/muttrc.muttils.bindings

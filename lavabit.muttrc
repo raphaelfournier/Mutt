@@ -1,0 +1,25 @@
+###
+# lavabit specific options
+###
+
+color status magenta default
+set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- fournier@lavabit.com --(%s/%S)-- (%P) ----"
+
+set from      = "fournier@lavabit.com"
+unmy_hdr *                      # remove all extra headers first.
+my_hdr From: Raphaël Fournier <fournier@lavabit.com>
+#set sendmail  = "/usr/bin/msmtp -a lavabit"
+set mbox      = "+Lavabit/Archive"
+set record    = "+Lavabit/Sent"
+set postponed = "+Lavabit/Drafts"
+set signature = "~/.mutt/lavabit.signature"                           # my signature file
+
+macro pager,index E "<change-folder>+Lavabit/Archive<enter><limit>~B " "search everything"
+macro pager,index D "<save-message>+Lavabit/Trash<enter>"              "move message to the trash"
+macro pager,index A "<save-message>+Lavabit/Archive<enter>"               "archive message"
+macro pager,index S "<save-message>+Lavabit/Archive/WebLabCRI<enter>"              "archive fabelier message"
+#save-hook "!(~C fabelier@)" =Lavabit/Archive/
+#save-hook "~t @lavabit.com" =Lavabit/Archive/
+save-hook "~C fabelier@googlegroups.com" =Lavabit/Archive/WebLabCRI
+save-hook "~C tmplab@lists.tmplab.org" =Lavabit/Archive/TmpLab
+save-hook "~C @lavabit.com" =Lavabit/Archive/
