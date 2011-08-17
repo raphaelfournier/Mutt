@@ -1,0 +1,34 @@
+###
+# LIP6 specific options
+###
+
+color status cyan default
+
+unmy_hdr *                      # remove all extra headers first.
+my_hdr From: Raphaël Fournier <raphael.fournier@lip6.fr>
+set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>--(%s/%S)-- (%P) ---"
+set from      = "raphael.fournier@lip6.fr"
+set sendmail  = "/usr/bin/msmtp -a lip6"
+set mbox      = "+Lip6/Archives"
+set record    = "+Lip6/Sent"
+set postponed = "+Lip6/Drafts"
+set signature = "~/.mutt/lip6.signature"                           # my signature file
+
+macro pager,index A "<save-message>+Lip6/Archives<enter>"               "archive message"
+macro pager,index E "<change-folder>+Lip6/Archive<enter><limit>~B " "search everything"
+macro pager,index D "<save-message>+Lip6/Trash<enter>"              "move message to the trash"
+macro pager,index ,p "<save-message>+Lip6/Archives/2011/Perso<enter>"              "archive perso message"
+macro pager,index ,a "<change-folder>=Lip6/Archives/2010/Antipaedo<enter>"              ""
+
+#macro index S "<save-message>+Lavabit/Spam<enter>"               "mark message as spam"
+bind pager,index I noop
+save-hook "~f @plus.google.com" =Lip6/Archives/GPlus
+save-hook "~t asr-forum@cines.fr" =Lip6/Archives/ASR
+save-hook "~f @edite-de-paris.fr" =Lip6/Archives/EDITE
+save-hook "~f @ieee.org" =Lip6/Archives/IEEE
+save-hook "~s flood" =Lip6/Archives/Flood
+save-hook "(~f nicolas.cayet@gmail.com|~f panayotis.antoniadis@lip6.fr)" =Lip6/Archives/Enseignement
+save-hook "(~f laure_fouard@hotmail.fr)" =Lip6/Archives/2011/Stage/
+#http://wiki.mutt.org/?PatternQuoting
+save-hook "~C @*upmc.fr" =Lip6/Archives/
+save-hook "(~C @complexnetworks.fr|~C lip6.fr)" =Lip6/Archives/

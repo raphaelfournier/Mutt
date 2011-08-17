@@ -1,0 +1,131 @@
+#alias
+
+# equipe LIP6
+# permanents
+alias matthieu Matthieu Latapy <matthieu.latapy@lip6.fr>
+alias clemence Clémence Magnien <clemence.magnien@lip6.fr>
+alias jeanloup Jean-Loup Guillaume <Jean-Loup.Guillaume@lip6.fr>
+alias benedicte Bénédicte Le Grand <Benedicte.Le-Grand@lip6.fr>
+alias fabien Fabien Tarissan <fabien.tarissan@lip6.fr>
+# doctorants
+alias assia Assia Hamzaoui <assia.hamzaoui@gmail.com>>
+alias oussama Oussama Allali <allalioussama@gmail.com>
+alias lamia Lamia Benamara <lam.benamara@gmail.com>
+alias hamid Hamid <sbahamid.213@gmail.com>
+alias thomas Thomas Aynaud <taynaud@gmail.com>
+alias massoud Massoud Seifi <massoud.seifi@lip6.fr>
+alias xiaomin Xiaomin Wang <Xiaomin.Wang@lip6.fr>
+alias sebastien.heymann Sébastien Heymann <sebastien.heymann@gephi.org>
+alias daniel.bernardes Daniel Bernardes <daniel.bernardes@lip6.fr>
+alias elie Élie Rotenberg <elie.rotenberg@gmail.com>
+alias tous "Toute l'équipe CN" <tous@complexnetworks.fr>
+#postdocs
+alias lionel.tabourier Lionel Tabourier <lionel.tabourier@ens-lyon.org>
+alias amelie.medem Amélie Medem <amelie.medem@lip6.fr>
+alias christophe.cresspelle Christophe Crespelle <christophe.crespelle@lip6.fr>
+#stagiaires
+alias antoine_mazieres Antoine Mazières <mazieres@lavabit.com>
+
+alias equipeLip6 jeanloup, matthieu, benedicte, clemence, fabien, oussama, thomas, lamia, assia, hamid, massoud
+alias doctorantsCN assia, oussama, lamia, hamid, thomas, massoud, xiaomin, sebastien.heymann, daniel.bernardes, elie, lionel.tabourier, amelie.medem
+
+# work-related
+alias veronique Véronique Varenne <Veronique.Varenne@lip6.fr>
+alias abdelaziz Abdelaziz El Ayache <Abdelaziz.El-Ayache@lip6.fr>
+alias fredericAidouni Frederic Aidouni <fred@aidounix.com>
+alias cyrilpoulet Cyril Poulet <cyril.poulet@lip6.fr>
+alias nathalie.picot@ufr-info-p6.jussieu.fr
+alias thibault.cholez Thibault Cholez <thibault.cholez@loria.fr>
+alias pierre-emmanuel.le-roux Pierre-Emmanuel Le Roux <pierre-emmanuel.le-roux@lip6.fr>
+alias konstantin.Kabassanov Konstantin KABASSANOV <Konstantin.Kabassanov@lip6.fr>
+alias renata.teixeira Renata Cruz Teixeira <renata.teixeira@lip6.fr>
+alias marcelo.diasdeamorim Marcelo Dias de Amorim <marcelo.amorim@lip6.fr>
+alias timur.friedman Timur Friedman <timur.friedman@upmc.fr>
+
+# stage
+alias guillaume Guillaume Valadon <guillaume@valadon.net>
+alias firas Firas Bessadok <firas.bess@gmail.com>
+alias adrienfriggeri Adrien Friggeri <adrien@friggeri.net>
+alias ahmed ahmedd_1982@yahoo.fr
+alias karim bessaoudk@yahoo.fr
+
+#fabelier
+alias philippe.langlois Philippe Langlois <philippe.langlois@gmail.com>
+
+# amis
+alias marie Marie Sniehotta <sniehottamarie@hotmail.com>
+alias cyril Cyril Fournier <cyrilfournier@chickenwalk.com>
+alias luis Luis Hidalgo-Bachs <docluisitus@yahoo.fr>
+alias julien Julien Gargot <julien.gargot@gmail.com>
+alias arnaudfegueux Arnaud Fegueux <arnaudfegueux@free.fr>
+alias elena Elena Collado-Morata <Elena.Collado@cerfacs.fr>
+alias elenai_hotmail Elena Collado-Morata <maspmenop@hotmail.com>
+alias charles Charles Delacroix <charles.delacroix@amadeus.com>
+alias victor_dusautois Victor Dusautois <victor_dusautois@yahoo.fr>
+alias jonathan_hotmail johntatane@hotmail.com
+alias jonathan_isae jonathan.carcone@isae.fr
+alias jonathan_boulot JONATHAN.CARCONE@airbus.com
+alias vincent_hotmail vincentmoi54@hotmail.com
+alias vincent_isae vincent.morand@isae.fr
+alias vincent_boulot vincent.morand@cnes.fr
+alias thibaut_hotmail funkydrake@hotmail.fr
+alias thibaut_isae thibaut.dargaud@isae.fr
+alias leo Léo Lisarde-Bouchard <leolb@hotmail.com>
+alias marielabarre Marie Labarre <marie.labarre@orange.fr>
+alias julien_marin Julien Marin <Julien.MARIN@astrium.eads.net>
+alias jeangael_gadot Jean-Gaël Gadot <jgadot@gmail.com>
+alias nicolas_henschen Nicolas Henschen <nicolas.henschen@altran.com>
+alias benoit_tricard Benoit Tricard <benoit.tricard.external@airbus.com>
+alias romain_cusset Romain Cusset <Romain.CUSSET@aeroconseil.com>
+alias simon_pera Simon Pera <prestataire.Simon.PERA@ca-titres.fr>
+
+# divers
+alias joel Joël Castagnoli et Martine Decoux <joel.castagnoli@wanadoo.fr>
+
+# famille
+alias maman Isabelle Fournier <i.fournier@crdv.asso.fr>
+alias papa Patrick Fournier <fpat@orange.fr>
+# mes adresses 
+alias me_lip6 raphael.fournier@lip6.fr
+alias me_lavabit fournier@lavabit.com
+alias me_hotmail acheinthegulliver@hotmail.com
+alias me_altern raphaelfournier@altern.org
+alias me_ensica raphael.fournier@isae.fr
+alias me_yahoo raph_fournier@yahoo.fr
+alias me_rfnet raphael@raphaelfournier.net
+
+alias emilie.petillon Émilie Petillon <emilie.petillon@gmail.com>
+alias yannick Yannick Fage <yannick.fage@gmail.com>
+alias nans.gourgousse Nans Gourgousse <nansgourgousse@gmail.com>
+alias anna-laure Anna-Laure Caristan-Lantin <caristanna@hotmail.com> 
+
+# adresses diverses
+#senova.bremantm@laposte.net
+#,,,,Romain.NIEDERST@ensica.isae.fr,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#MORAN,Michael,MORAN Michael,,M.MORAN@INTERPOL.INT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#'Jon,Peacock','Jon Peacock',,Jon.Peacock@dia.govt.nz,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#Christian,QUEINNEC,Christian QUEINNEC,,direction@edite-de-paris.fr,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#Pierre-Emmanuel Le,Roux,Pierre-Emmanuel Le Roux,,pierre-emmanuel.le-roux@lip6.fr,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+alias fabelier Fabelier <fabelier@googlegroups.com>
+alias patricia.Lavanchy Patricia Lavanchy <Patricia.Lavanchy@ufr-info-p6.jussieu.fr>
+alias jean-Luc.Mounier Jean-Luc Mounier <Jean-Luc.Mounier@lip6.fr>
+alias lucas.dicioccio Lucas Di Cioccio <lucas@dicioccio.fr>
+alias zeynep_Pehlivan Zeynep Pehlivan <pehlivanz@poleia.lip6.fr>
+alias gabriel.dulac-arnold Gabriel Dulac-Arnold <gabriel.dulac-arnold@lip6.fr>
+alias david.oriol David Oriol <David.Oriol@lip6.fr>
+alias liste_edite zeynep_Pehlivan, gabriel.dulac-arnold, david.oriol
+alias stephanie_vidal Stéphanie Vidal <stephcodesignlab@gmail.com>
+alias marilyn.galopin Marilyn GALOPIN <marilyn.galopin@upmc.fr>
+alias panayotis.antoniadis Panayotis Antoniadis <panayotis.antoniadis@lip6.fr>
+alias flood Flood <flood@complexnetworks.fr>
+alias laure_fouard Laure Fouard <laure_fouard@hotmail.fr>
+alias fabienne.Lassausaie Fabienne Lassausaie <Fabienne.Lassausaie@telecom-paristech.fr>
+alias elisabeth.coye Elisabeth Coye <elisabeth.coye@wanadoo.fr>
+alias promethee.spathis Prométhée Spathis <promethee.spathis@lip6.fr>
+alias nicolas.cayet Nicolas Cayet <nicolas.cayet@gmail.com>
+alias anne.fladenmuller Anne Fladenmuller <anne.fladenmuller@lip6.fr>
+alias isabelle.chrisment Isabelle Chrisment <isabelle.chrisment@loria.fr>
+alias laurent.sniehotta Laurent SNIEHOTTA <laurent.sniehotta@gmail.com>
+alias marie_travail Marie SNIEHOTTA <msniehotta@allegromusique.fr>
+alias cyrilfournier Cyril Fournier <cyrilfournier@chickenwalk.com>
+alias ivan.daniloff ivan daniloff <ivan.daniloff@laposte.net>

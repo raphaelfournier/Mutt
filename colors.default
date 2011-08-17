@@ -1,0 +1,39 @@
+#Couleurs
+# Default color definitions
+color normal     white         default
+color hdrdefault green         default
+color quoted     green         default
+color quoted1    yellow        default
+color quoted2    red           default
+color signature  cyan          default
+color indicator  blue         yellow
+color error      brightred     default
+color status     brightwhite   blue
+color tree       magenta default
+color tilde      blue          default
+color attachment brightyellow  default
+color markers   brightred     default
+color message    white         default
+color search     brightwhite   magenta
+color bold       brightyellow  default
+
+# Color definitions for index
+color index  white red  ~D
+color index  green  default ~N
+color index  cyan  default ~F
+
+# Color definitions when on a mono screen
+mono bold      bold
+mono underline underline
+mono indicator reverse
+mono error     bold
+
+# Colors for items in the reader
+#color header brightyellow default "^(From|Subject):"
+color header brightyellow default ^From:
+color header brightred default ^Subject:
+color header brightyellow   default ^To:
+color header brightyellow   default ^Cc:
+color header brightred   default ^Date:
+mono  header bold                 "^(From|Subject):"
+
