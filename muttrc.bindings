@@ -28,23 +28,32 @@ bind pager,index p noop
 
 macro generic,pager,index <f1> "!links /usr/share/doc/mutt/manual.html" "Show Mutt documentation"
 macro pager,index,generic <f2> ":set sendmail=\"/usr/bin/msmtp -a lip6\""
+macro pager,index,generic S "<clear-flag>N<previous-entry><save-message>"
 macro pager,index,generic <f3> ":set sendmail=\"/usr/bin/msmtp -a lip6-ext\""
 macro pager,index,generic <f4> ":set sendmail=\"/usr/bin/msmtp -a lavabit\""
 macro pager,index,generic <f5> ":set sendmail=\"/usr/bin/msmtp -a google\""
 macro pager,index,generic <f6> "<change-folder>+Lip6/INBOX<enter>"
 macro pager,index,generic <esc><f6> "<change-folder>+Lip6/Sent<enter>"
 macro pager,index,generic <f7> "<change-folder>+Lavabit/Inbox<enter>"
+macro pager,index,generic \c<f7> "<change-folder>+Lavabit/Archive<enter>"
 macro pager,index,generic <esc><f7> "<change-folder>+Lavabit/Sent<enter>"
 macro pager,index,generic <f8> "<change-folder>+Rfnet/INBOX<enter>"
 macro pager,index,generic <esc><f8> "<change-folder>+Rfnet/Sent<enter>"
 macro pager,index,generic <f9> "<change-folder>+Rfnet/MLEnsica<enter>"
 macro pager,index,generic <f10> ":set print_command =\"muttprint -pDCP7030\""
-macro generic ,s "<enter-command>set my_cmd = \`$HOME/.mutt/mairix_search\`<return><enter-command>push \$my_cmd<return>" "search messages"
-#macro index <F11> \
+#macro generic ,s "<enter-command>set my_cmd = \`$HOME/.mutt/mairix_search\`<return><enter-command>push \$my_cmd<return>" "search messages"
+#macro index ,n \
 #          "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
 #          "search mail (using notmuch)"
+# mutt macros for mu
+macro index ,s "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Mail/search " \
+                         "mu find"
+macro index ,d "<change-folder-readonly>~/Mail/search" \
+                         "mu find results"
+
 #    macro index <F12> \
 #          "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>~/.mutt/mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" "search and reconstruct owning thread (using notmuch)"
 #set resolve=no # no = ne passe pas au message suivant apres un clearflag
-#macro pager,index,generic "s" "<clear-flag>N<save-message>"
+#macro pager,index,generic "S" "<clear-flag>N<previous-undeleted>" #<save-message>"
 source ~/.mutt/muttrc.muttils.bindings
+source ~/.mutt/muttrc.muttjump.bindings
