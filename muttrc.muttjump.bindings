@@ -1,0 +1,1 @@
+macro generic ,j "<enter-command>push <pipe-message>muttjump<enter><enter>" "jump to original message"
