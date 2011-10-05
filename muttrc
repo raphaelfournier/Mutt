@@ -30,7 +30,7 @@ unset confirmappend                                             # don't ask, jus
 set quit                                                        # don't ask, just do!!
 unset mark_old                                                  # read/new is good enough for me
 set beep_new                                                    # bell on new mails
-set pipe_decode=no # required by muttils
+#set pipe_decode=no # required by muttils
 set thorough_search                                             # strip headers and eval mimes before searching
 
 # index options
@@ -93,6 +93,7 @@ hdr_order from: to: cc: date: subject:                          # and in this or
 # boxes
 #mailboxes +Rfnet/INBOX +Rfnet/Archives +Rfnet/Drafts +Rfnet/Sent +Rfnet/Trash
 mailboxes "/var/spool/mail/raph"
+mailboxes "~/Mail/Templates"
 mailboxes `find ~/Mail/Lip6/* -type d | grep -v "tmp\|new\|cur\|2010\/" |xargs`
 mailboxes `find ~/Mail/Lavabit/* -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes `find ~/Mail/Rfnet -type d | grep -v "tmp\|new\|cur" |xargs`
@@ -103,6 +104,7 @@ source ~/.mutt/muttrc.bindings
 source $alias_file                                              # required for functionality
 source ~/.mutt/lip6.muttrc                                      # defaut account
 source ~/.mutt/colors.zenburn                                    # source colors file
+#source ~/.mutt/colors.solarized-dark256
 #source ~/.mutt/colors.default
 #source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
 
