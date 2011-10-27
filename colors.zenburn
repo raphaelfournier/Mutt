@@ -29,6 +29,8 @@ color index      color188 color237 ~O # old messages
 color index      color174 color237 ~F # flagged
 color index      color237 color174 ~D # deleted
 color index      color237 color108 ~T # deleted
+#color index      color108 color237 !~F!~Q 
+#http://www.mutt.org/doc/manual/manual-4.html#patterns
 
 # header stuff
 color hdrdefault color223 color237

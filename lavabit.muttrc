@@ -19,10 +19,9 @@ set signature = "~/.mutt/lavabit.signature"                           # my signa
 #macro pager,index A "<save-message>+Lavabit/Archive<enter>"               "archive message"
 #macro pager,index S "<save-message>+Lavabit/Archive/WebLabCRI<enter>"              "archive fabelier message"
 #save-hook "!(~C fabelier@)" =Lavabit/Archive/
-#save-hook "~t @lavabit.com" =Lavabit/Archive/
 save-hook "~C fabelier@googlegroups.com" =Lavabit/Archive/WebLabCRI
 save-hook "~C tmplab@lists.tmplab.org" =Lavabit/Archive/TmpLab
-save-hook "(~C adherents@ps-paris13est.org|~C webmestre@lesprimairescitoyennes.fr)" =Lavabit/Archive/PS
+save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @lesprimairescitoyennes.fr)" =Lavabit/Archive/PS
 save-hook "~C @lavabit.com" =Lavabit/Archive/
 subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr
 

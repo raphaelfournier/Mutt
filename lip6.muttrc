@@ -22,16 +22,17 @@ macro pager,index ,a "<change-folder>=Lip6/Archives/2010/Antipaedo<enter>"      
 
 #macro index S "<save-message>+Lavabit/Spam<enter>"               "mark message as spam"
 bind pager,index I noop
+save-hook "~s flood" =Lip6/Archives/Flood
 save-hook "~f @plus.google.com" =Lip6/Archives/GPlus
 #save-hook "~t asr-forum@cines.fr" =Lip6/Archives/ASR
 save-hook "~s .asr" =Lip6/Archives/ASR
 save-hook "~f @edite-de-paris.fr" =Lip6/Archives/EDITE
-save-hook "(~f ieee|~f @qmags.com)" =Lip6/Archives/IEEE
-save-hook "~s flood" =Lip6/Archives/Flood
+save-hook "(~f ieee|~f @qmags.com|~f @comsoc.org)" =Lip6/Archives/IEEE
 save-hook "(~f nicolas.cayet@gmail.com|~f panayotis.antoniadis@lip6.fr)" =Lip6/Archives/Enseignement
 save-hook "~f laure_fouard@hotmail.fr" =Lip6/Archives/2011/Stage/
 save-hook "(~s .phackia|~f noreply@ml-class.org)" =Lip6/Archives/MachineLearning
+save-hook "(~f upmc.fr$|~C upmc.fr)" =Lip6/Archives/
+#save-hook "(~C @complexnetworks.fr|~C lip6.fr)" =Lip6/Archives/`date +"%Y"`/
+save-hook "(~C @complexnetworks.fr|~C lip6.fr)" =Lip6/Archives/`date +"%Y"`/
 #http://wiki.mutt.org/?PatternQuoting
-save-hook "~C @*upmc.fr" =Lip6/Archives/
-save-hook "(~C @complexnetworks.fr|~C lip6.fr)" =Lip6/Archives/
 subscribe tous@complexnetworks.fr flood@complexnetworks.fr tout-lip6@lip6.fr asr-forum@cines.fr asr.rescom@cines.fr techalert@ieee.org @ieee.org paris-hackerspaces-ia@googlegroups.com

@@ -48,7 +48,7 @@ macro pager,index,generic <f10> ":set print_command =\"muttprint -pDCP7030\""
 # mutt macros for mu
 macro index ,s "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Mail/search " \
                          "mu find"
-macro index ,d "<change-folder-readonly>~/Mail/search" \
+macro index ,d "<change-folder-readonly>~/Mail/search<enter><last-entry><current-middle>" \
                          "mu find results"
 
 #    macro index <F12> \
