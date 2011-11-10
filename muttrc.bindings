@@ -25,6 +25,8 @@ bind pager \c? previous-line
 # eviter les print intempestifs
 bind pager,index P print-message
 bind pager,index p noop
+bind pager,index '"' pipe-message
+#macro pager,index '"' "<enter-command>push <pipe-message>"
 
 macro generic,pager,index <f1> "!links /usr/share/doc/mutt/manual.html" "Show Mutt documentation"
 macro pager,index,generic <f2> ":set sendmail=\"/usr/bin/msmtp -a lip6\""

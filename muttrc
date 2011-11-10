@@ -30,7 +30,7 @@ unset confirmappend                                             # don't ask, jus
 set quit                                                        # don't ask, just do!!
 unset mark_old                                                  # read/new is good enough for me
 set beep_new                                                    # bell on new mails
-#set pipe_decode=no # required by muttils
+set pipe_decode=no # required by muttils
 set thorough_search                                             # strip headers and eval mimes before searching
 
 # index options
@@ -104,7 +104,7 @@ source ~/.mutt/muttrc.bindings
 source $alias_file                                              # required for functionality
 source ~/.mutt/lip6.muttrc                                      # defaut account
 source ~/.mutt/colors.zenburn                                    # source colors file
-#source ~/.mutt/colors.solarized-dark256
+#source ~/.mutt/colors.solarized-light256
 #source ~/.mutt/colors.default
 #source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
 
