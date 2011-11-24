@@ -32,7 +32,7 @@ save-hook "(~f nicolas.cayet@gmail.com|~f panayotis.antoniadis@lip6.fr)" =Lip6/A
 save-hook "~f laure_fouard@hotmail.fr" =Lip6/Archives/2011/Stage/
 save-hook "(~s .phackia|~f noreply@ml-class.org)" =Lip6/Archives/MachineLearning
 save-hook "(~f upmc.fr$|~C upmc.fr)" =Lip6/Archives/
-save-hook "(~f www@tibre.lip6.fr)" ==Lip6/Archives/2010/Antipaedo/
+save-hook "(~f www@tibre.lip6.fr)" =Lip6/Archives/2010/Antipaedo/
 #save-hook "(~C @complexnetworks.fr|~C lip6.fr)" =Lip6/Archives/`date +"%Y"`/
 save-hook "(~C @complexnetworks.fr|~C lip6.fr)" =Lip6/Archives/
 #http://wiki.mutt.org/?PatternQuoting

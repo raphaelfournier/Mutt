@@ -29,8 +29,10 @@ bind pager,index '"' pipe-message
 #macro pager,index '"' "<enter-command>push <pipe-message>"
 
 macro generic,pager,index <f1> "!links /usr/share/doc/mutt/manual.html" "Show Mutt documentation"
+macro pager,index,generic ,t ":set sendmail=\"/usr/sbin/sendmail raph\""
+macro pager,index,generic ,e "<enter-command>push <mail><enter>todo<enter>"
 macro pager,index,generic <f2> ":set sendmail=\"/usr/bin/msmtp -a lip6\""
-macro pager,index,generic S "<clear-flag>N<previous-entry><save-message>"
+#macro pager,index,generic S "<clear-flag>N<previous-entry><save-message>"
 macro pager,index,generic <f3> ":set sendmail=\"/usr/bin/msmtp -a lip6-ext\""
 macro pager,index,generic <f4> ":set sendmail=\"/usr/bin/msmtp -a lavabit\""
 macro pager,index,generic <f5> ":set sendmail=\"/usr/bin/msmtp -a google\""
@@ -43,6 +45,9 @@ macro pager,index,generic <f8> "<change-folder>+Rfnet/INBOX<enter>"
 macro pager,index,generic <esc><f8> "<change-folder>+Rfnet/Sent<enter>"
 macro pager,index,generic <f9> "<change-folder>+Rfnet/MLEnsica<enter>"
 macro pager,index,generic <f10> ":set print_command =\"muttprint -pDCP7030\""
+
+macro index "S" "<enter-command>set resolve=no <enter><clear-flag>N<enter-command>set resolve=yes <enter><save-message>"
+
 #macro generic ,s "<enter-command>set my_cmd = \`$HOME/.mutt/mairix_search\`<return><enter-command>push \$my_cmd<return>" "search messages"
 #macro index ,n \
 #          "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \

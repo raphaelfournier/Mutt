@@ -5,7 +5,7 @@ set sidebar_delim='|'
 set sidebar_sort=yes
 
 # which mailboxes to list in the sidebar 
-mailboxes =Lavabit/Inbox =Lip6/INBOX =Lip6/---
+mailboxes =Lip6/INBOX =0Gmail1
 #mailboxes =Lavabit/Inbox =Lip6/INBOX =Rfnet/INBOX
 # color of folders with new mail 
 color sidebar_new brightred default 

@@ -70,7 +70,7 @@ set sig_on_top                                                  # signature abov
 #set edit_headers                                                # show headers when composing
 set fast_reply                                                  # skip to compose when replying
 #set sendmail_wait       = -1                                    # don't wait for sending... to complete
-set askcc                                                       # ask for CC:
+set askcc=no                                                       # ask for CC:
 set fcc_attach                                                  # save attachments with the body
 unset mime_forward                                              # forward attachments as part of body
 set forward_format      = "Re: %s"                             # format for subject when forwarding
@@ -92,9 +92,11 @@ hdr_order from: to: cc: date: subject:                          # and in this or
 
 # boxes
 #mailboxes +Rfnet/INBOX +Rfnet/Archives +Rfnet/Drafts +Rfnet/Sent +Rfnet/Trash
+source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
+
 mailboxes "/var/spool/mail/raph"
 mailboxes "~/Mail/Templates"
-mailboxes `find ~/Mail/Lip6/* -type d | grep -v "tmp\|new\|cur\|2010\/" |xargs`
+mailboxes `find ~/Mail/Lip6/* -type d | grep -v "tmp\|new\|cur\|201.\/" |xargs`
 mailboxes `find ~/Mail/Lavabit/* -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes `find ~/Mail/Rfnet -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes +mfolder
@@ -106,7 +108,6 @@ source ~/.mutt/lip6.muttrc                                      # defaut account
 source ~/.mutt/colors.zenburn                                    # source colors file
 #source ~/.mutt/colors.solarized-light256
 #source ~/.mutt/colors.default
-#source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
 
 # account specific sources
 folder-hook Lip6/* source ~/.mutt/lip6.muttrc

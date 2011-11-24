@@ -8,7 +8,7 @@ set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %
 set from      = "fournier@lavabit.com"
 unmy_hdr *                      # remove all extra headers first.
 my_hdr From: Raphaël Fournier <fournier@lavabit.com>
-#set sendmail  = "/usr/bin/msmtp -a lavabit"
+set sendmail  = "/usr/bin/msmtp -a lavabit"
 set mbox      = "+Lavabit/Archive"
 set record    = "+Lavabit/Sent"
 set postponed = "+Lavabit/Drafts"
@@ -21,7 +21,9 @@ set signature = "~/.mutt/lavabit.signature"                           # my signa
 #save-hook "!(~C fabelier@)" =Lavabit/Archive/
 save-hook "~C fabelier@googlegroups.com" =Lavabit/Archive/WebLabCRI
 save-hook "~C tmplab@lists.tmplab.org" =Lavabit/Archive/TmpLab
+save-hook "~C discussions@lifehacking.fr" =Lavabit/Archive/Lifehacking
 save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @lesprimairescitoyennes.fr)" =Lavabit/Archive/PS
+save-hook "(~f fcouchet@april.org|~f @lifehacking.fr)" =Lavabit/Archive/Lifehacking
 save-hook "~C @lavabit.com" =Lavabit/Archive/
-subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr
+subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr
 
