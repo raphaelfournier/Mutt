@@ -92,13 +92,13 @@ hdr_order from: to: cc: date: subject:                          # and in this or
 
 # boxes
 #mailboxes +Rfnet/INBOX +Rfnet/Archives +Rfnet/Drafts +Rfnet/Sent +Rfnet/Trash
-source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
+#source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
 
-mailboxes "/var/spool/mail/raph"
+#mailboxes "/var/spool/mail/raph"
 mailboxes "~/Mail/Templates"
 mailboxes `find ~/Mail/Lip6/* -type d | grep -v "tmp\|new\|cur\|201.\/" |xargs`
 mailboxes `find ~/Mail/Lavabit/* -type d | grep -v "tmp\|new\|cur" |xargs`
-mailboxes `find ~/Mail/Rfnet -type d | grep -v "tmp\|new\|cur" |xargs`
+mailboxes `find ~/Mail/Rfnet -maxdepth 1 -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes +mfolder
 
 # always sourced

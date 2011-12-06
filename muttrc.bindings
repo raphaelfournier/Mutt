@@ -26,7 +26,7 @@ bind pager \c? previous-line
 bind pager,index P print-message
 bind pager,index p noop
 bind pager,index '"' pipe-message
-#macro pager,index '"' "<enter-command>push <pipe-message>"
+macro pager,index c <change-folder>=
 
 macro generic,pager,index <f1> "!links /usr/share/doc/mutt/manual.html" "Show Mutt documentation"
 macro pager,index,generic ,t ":set sendmail=\"/usr/sbin/sendmail raph\""
