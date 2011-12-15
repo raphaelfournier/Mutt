@@ -20,7 +20,7 @@ set query_command = "lbdbq '%s'"
 set mbox_type           = Maildir                               # mailbox type
 set folder              = ~/Mail                                # mailbox location
 set spoolfile           = "+Lip6/INBOX"                        #  default inbox
-set timeout             = 3                                     # idle time before scanning
+set timeout             = 1800                                  # idle time before scanning
 set mail_check          = 0                                     # minimum time between scans
 set sort_alias          = alias                                 # sort alias file by alias
 set reverse_alias                                               # show names from alias file in index
@@ -41,9 +41,9 @@ set sort_re                                                     # thread based o
 set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # pager options
-set pager_index_lines   = 10                                    # number of index lines to show 
-set pager_context       = 5                                     # number of context lines to show
-set pager_stop                                                  # don't go to next message automatically
+#set pager_index_lines   = 10                                    # number of index lines to show 
+#set pager_context       = 5                                     # number of context lines to show
+#set pager_stop                                                  # don't go to next message automatically
 set menu_scroll                                                 # scroll in menus 
 set smart_wrap                                                  # don't split words
 set tilde                                                       # show tildes like in vim
@@ -83,31 +83,28 @@ set reverse_name                                                # reply as whome
 set include                                                     # include message in replies
 set forward_quote                                               # include message in forwards
 set reverse_name = yes
-alternates raphael.fournier@complexnetworks.lip6.fr|raphael@raphaelfournier.net
+alternates raphael.fournier@complexnetworks.lip6.fr|raphael@raphaelfournier.net|fournier@lavabit.com
 
 # headers to show
 ignore *                                                        # ignore all headers
 unignore from: to: cc: date: subject:                           # show only these
 hdr_order from: to: cc: date: subject:                          # and in this order
 
-# boxes
-#mailboxes +Rfnet/INBOX +Rfnet/Archives +Rfnet/Drafts +Rfnet/Sent +Rfnet/Trash
-#source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
-
 #mailboxes "/var/spool/mail/raph"
 mailboxes "~/Mail/Templates"
-mailboxes `find ~/Mail/Lip6/* -type d | grep -v "tmp\|new\|cur\|201.\/" |xargs`
-mailboxes `find ~/Mail/Lavabit/* -type d | grep -v "tmp\|new\|cur" |xargs`
-mailboxes `find ~/Mail/Rfnet -maxdepth 1 -type d | grep -v "tmp\|new\|cur" |xargs`
-mailboxes +mfolder
+mailboxes `find ~/Mail/Lip6/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|201.\/" |xargs`
+mailboxes `find ~/Mail/Lavabit/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
+mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 
 # always sourced
 source ~/.mutt/muttrc.bindings
 source $alias_file                                              # required for functionality
 source ~/.mutt/lip6.muttrc                                      # defaut account
-source ~/.mutt/colors.zenburn                                    # source colors file
+source ~/.mutt/colors.zenburn                                   # source colors file
+source ~/.mutt_files/gpg.rc                                     # gpg configuration 
 #source ~/.mutt/colors.solarized-light256
 #source ~/.mutt/colors.default
+#source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
 
 # account specific sources
 folder-hook Lip6/* source ~/.mutt/lip6.muttrc

@@ -14,10 +14,4 @@ set record    = "+Rfnet/Sent"
 set postponed = "+Rfnet/Drafts"
 set signature = "~/.mutt/rfnet.signature"                           # my signature file
 
-macro index E "<change-folder>+Rfnet/Archives<enter><limit>~B " "search everything"
-macro index D "<save-message>+Rfnet/Trash<enter>"              "move message to the trash"
-
-#macro index S "<save-message>+Rfnet/Spam<enter>"               "mark message as spam"
-macro pager,index A "<save-message>+Rfnet/Archives<enter>"               "archive message"
-#macro index A "<save-message>+Rfnet/Archive<enter>"               "archive message"
-save-hook "~C @*.fournier.net" =Rfnet/Archives/
+save-hook "~C @*.fournier.net" =Rfnet/

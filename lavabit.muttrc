@@ -14,16 +14,12 @@ set record    = "+Lavabit/Sent"
 set postponed = "+Lavabit/Drafts"
 set signature = "~/.mutt/lavabit.signature"                           # my signature file
 
-#macro pager,index E "<change-folder>+Lavabit/Archive<enter><limit>~B " "search everything"
-#macro pager,index D "<save-message>+Lavabit/Trash<enter>"              "move message to the trash"
-#macro pager,index A "<save-message>+Lavabit/Archive<enter>"               "archive message"
-#macro pager,index S "<save-message>+Lavabit/Archive/WebLabCRI<enter>"              "archive fabelier message"
-#save-hook "!(~C fabelier@)" =Lavabit/Archive/
-save-hook "~C fabelier@googlegroups.com" =Lavabit/Archive/WebLabCRI
-save-hook "~C tmplab@lists.tmplab.org" =Lavabit/Archive/TmpLab
-save-hook "~C discussions@lifehacking.fr" =Lavabit/Archive/Lifehacking
+save-hook "~C fabelier@googlegroups.com" =Lavabit/Archive/MailingLists
+save-hook "~C tmplab@lists.tmplab.org" =Lavabit/Archive/MailingLists
+save-hook "~C discussions@lifehacking.fr" =Lavabit/Archive/MailingLists
+save-hook "~C discussion@laquadrature.net" =Lavabit/Archive/MailingLists
 save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @lesprimairescitoyennes.fr)" =Lavabit/Archive/PS
 save-hook "(~f fcouchet@april.org|~f @lifehacking.fr)" =Lavabit/Archive/Lifehacking
 save-hook "~C @lavabit.com" =Lavabit/Archive/
-subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr
+subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net
 
