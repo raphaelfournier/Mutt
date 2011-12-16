@@ -22,4 +22,3 @@ save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @les
 save-hook "(~f fcouchet@april.org|~f @lifehacking.fr)" =Lavabit/Archive/Lifehacking
 save-hook "~C @lavabit.com" =Lavabit/Archive/
 subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net
-
