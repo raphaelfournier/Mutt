@@ -9,8 +9,8 @@
 # Take care, there are some defaults hardcoded in keymap.c:km_init()
 # Most defaults (Op*) are defined in functions.h.
 
+######################################
 # macros
-#macro index \Cr "<tag-prefix><clear-flag>N" "mark tagged messages as read"
 macro index B   "<limit>~b "                "search message bodies"
 macro index \Cf "<limit>~F<enter><current-middle>"
 macro index \Ca "<limit>all<enter><current-middle>"
@@ -18,16 +18,15 @@ macro attach s <save-entry><kill-line>~/Mail/Attachments/ "save attachments in ~
 bind index zt current-top
 bind index zz current-middle
 bind index zb current-bottom
-# quick-sync ~/Mail immediately with offlineimap
-macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o<enter>" "sync IMAP"
-# FIX for Rxvt-unicode backspace binding
-bind pager \c? previous-line
-# eviter les print intempestifs
-bind pager,index P print-message
+macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+bind pager \c? previous-line # FIX for Rxvt-unicode backspace binding
+bind pager,index P print-message # eviter les print intempestifs
 bind pager,index p noop
 bind pager,index '"' pipe-message
 macro pager,index c <change-folder>=
+######################################
 
+######################################
 macro index,pager         A         "<pipe-message>abook --add-email<return>" "add the sender address to abook"
 macro pager,index,generic ,t        ":set sendmail=\"/usr/sbin/sendmail raph\""
 macro pager,index,generic ,e        "<enter-command>push <mail><enter>todo<enter>"
@@ -47,22 +46,44 @@ macro pager,index,generic <f8>      "<change-folder>+Rfnet/INBOX<enter>"
 macro pager,index,generic <esc><f8> "<change-folder>+Rfnet/Sent<enter>"
 macro pager,index,generic <f9>      "<change-folder>+Rfnet/MLEnsica<enter>"
 macro pager,index,generic <f10>     ":set print_command =\"muttprint -pDCP7030\""
-#macro pager,index,generic S         "<clear-flag>N<previous-entry><save-message>"
-#macro index "S" "<enter-command>set resolve=no <enter><clear-flag>N<enter-command>set resolve=yes <enter><save-message>"
+######################################
 
+######################################
+# labels
+#macro index y "<enter-command>set editor=\"~/.mutt/editlabel append\"\n\
+#<edit><sync-mailbox><next-undeleted>\
+#<enter-command>set editor=vim\n" "Append label"
+#macro pager y "<enter-command>set editor=\"~/.mutt/editlabel append\"\n\
+#<edit><sync-mailbox><next-undeleted>\
+#<enter-command>set editor=vim\n" "Append label"
+#macro index Y "<enter-command>set editor=\"~/.mutt/editlabel menu\"\n\
+#<edit><sync-mailbox><next-undeleted>\
+#<enter-command>set editor=vim\n" "Edit labels"
+#macro pager Y "<enter-command>set editor=\"~/.mutt/editlabel menu\"\n\
+#<edit><sync-mailbox><next-undeleted>\
+#<enter-command>set editor=vim\n" "Edit labels"
+macro index ,e "<limit>~y " "Limit view to label"
+set my_vi=$editor
+macro index ",z" ":set editor=/home/raph/.mutt/edittag\ne:set editor=$my_vi\njN"
+#macro index "\" ":set my_tag="
+#macro index "<F12>" ":set editor=\"tag -t '$my_tag'\"\ne:set editor=$my_vi\nj"
+######################################
+
+######################################
+# mutt macros for mu
+macro index ,s "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Mail/search " "mu find"
+macro index ,d "<change-folder-readonly>~/Mail/search<enter><last-entry><current-middle>" "mu find results"
+######################################
+
+######################################
+source ~/.mutt/muttrc.muttils.bindings
+source ~/.mutt/muttrc.muttjump.bindings
+######################################
+
+######################################
+# mutt macros for notmuch
 #macro generic ,s "<enter-command>set my_cmd = \`$HOME/.mutt/mairix_search\`<return><enter-command>push \$my_cmd<return>" "search messages"
 #macro index ,n \
 #          "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
 #          "search mail (using notmuch)"
-# mutt macros for mu
-macro index ,s "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Mail/search " \
-                         "mu find"
-macro index ,d "<change-folder-readonly>~/Mail/search<enter><last-entry><current-middle>" \
-                         "mu find results"
-
-#    macro index <F12> \
-#          "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>~/.mutt/mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" "search and reconstruct owning thread (using notmuch)"
-#set resolve=no # no = ne passe pas au message suivant apres un clearflag
-#macro pager,index,generic "S" "<clear-flag>N<previous-undeleted>" #<save-message>"
-source ~/.mutt/muttrc.muttils.bindings
-source ~/.mutt/muttrc.muttjump.bindings
+######################################

@@ -54,7 +54,7 @@ set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 
 # formats
 set date_format         = "%d/%m/%y %R"
-set index_format        = "%4C %Z %D  %-20.20F %s %> %4c"
+set index_format        = "%4C %Z %D %-20.20F %?y?[%.20Y] ?%s %> %4c"
 #set index_format        = "%4C %Z %{%b %d} %-15.15L (%4c) %s"
 #
 set folder_format="%2C %t %N %f %> %4s %d" 
@@ -87,8 +87,9 @@ alternates raphael.fournier@complexnetworks.lip6.fr|raphael@raphaelfournier.net|
 
 # headers to show
 ignore *                                                        # ignore all headers
-unignore from: to: cc: date: subject:                           # show only these
-hdr_order from: to: cc: date: subject:                          # and in this order
+unignore from: to: cc: date: subject: X-Label:                  # show only these
+hdr_order from: to: cc: date: subject: X-Label:                 # and in this order
+color header brightwhite default '^X-Label:'
 
 #mailboxes "/var/spool/mail/raph"
 mailboxes "~/Mail/Templates"

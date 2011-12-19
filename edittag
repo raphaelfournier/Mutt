@@ -1,0 +1,35 @@
+#! /usr/bin/perl -w
+
+print "which tag? ";
+$_ = <STDIN>;
+s/([+-])(.*)//;
+my $mod = $1;
+die "$0 error: tag must begin with +|-\n" if (!defined $mod);
+
+my @tags = split /[\s,]+/, $2;
+die "$0 error: tag must contain some non-space characters\n" if (@tags < 1);
+
+open OUT, ">", $ARGV[0] . ".new" or
+  die "$0 error: failed to open output file \"$ARGV[0].new\" $!\n";
+open FILE, "<", $ARGV[0] or 
+  die "$0 error: failed to open input file \"$ARGV[0].new\" $!\n";
+
+my %h;
+my $once = 1;
+while (<FILE>) {
+  if (m/^X-Label: (.*)/) {
+    map { $h{$_} = 1; } split /[\s,]+/, $1;
+  } elsif ($once && m/^$/) {
+    $once = 0;
+    if ($mod eq "-") {
+      map { delete $h{$_} } @tags;
+    } else {
+      map { $h{$_} = 1; } @tags;
+    }
+    print OUT "X-Label: ", join(", ", sort keys %h), "\n\n";
+  } else {
+    print OUT "$_";
+  }
+}
+
+rename "$ARGV[0].new", $ARGV[0];
