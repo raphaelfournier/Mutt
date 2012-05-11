@@ -3,7 +3,7 @@
 ###
 
 color status brightred default
-set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- raphael@raphaelfournier.net --(%s/%S)-- (%P) ----"
+set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- rfnet --(%s/%S)-- (%P) ----"
 
 set from      = "raphael@raphaelfournier.net"
 unmy_hdr *                      # remove all extra headers first.
@@ -14,4 +14,4 @@ set record    = "+Rfnet/Sent"
 set postponed = "+Rfnet/Drafts"
 set signature = "~/.mutt/rfnet.signature"                           # my signature file
 
-save-hook "~C @*.fournier.net" =Rfnet/
+save-hook "~C @*.fournier.net" =Rfnet/Archives/

@@ -101,8 +101,10 @@ mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xa
 source ~/.mutt/muttrc.bindings
 source $alias_file                                              # required for functionality
 source ~/.mutt/lip6.muttrc                                      # defaut account
-source ~/.mutt/colors.zenburn.perso                                   # source colors file
-source ~/.mutt/gpg.rc                                     # gpg configuration 
+#source ~/.mutt/colors.zenburn.perso                                   # source colors file
+source ~/.mutt/colors.zenburn`echo $TERM | sed "s:.*-::"`
+#echo $TERM | sed "s:.*-::"
+#source ~/.mutt/gpg.rc                                     # gpg configuration 
 #source ~/.mutt/colors.solarized-light256
 #source ~/.mutt/colors.default
 #source ~/.mutt/sidebar.muttrc                                   # any muttng options are here

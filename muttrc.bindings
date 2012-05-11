@@ -21,7 +21,7 @@ bind index zb current-bottom
 macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
 bind pager \c? previous-line # FIX for Rxvt-unicode backspace binding
 bind pager,index P print-message # eviter les print intempestifs
-bind pager,index p noop
+bind pager,index p search-opposite
 bind pager,index '"' pipe-message
 macro pager,index c <change-folder>=
 ######################################

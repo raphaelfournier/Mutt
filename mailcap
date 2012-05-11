@@ -6,7 +6,7 @@ text/html;/usr/bin/firefox %s;
 #text/html; lynx -dump %s; copiousoutput; nametemplate=%s.html
 #text/html;/usr/bin/links %s; needsterminal
 #application/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
-application/pdf; /usr/bin/acroread %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+application/pdf; /usr/bin/evince %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 image/gif; firefox %s
 image/*; feh %s
 video/*; mplayer %s
@@ -28,3 +28,6 @@ application/xls; soffice %s; test=test "$DISPLAY" != ""; description=XLS; namete
 application/vnd.msword; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc
 application/msword; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc
 application/doc; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc
+######
+unknown/unknown; soffice %s; test=test "$DISPLAY" != ""; description=PPS; nametemplate=%s.pps
+application/postscript; gv %s; 
