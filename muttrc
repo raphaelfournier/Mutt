@@ -96,6 +96,7 @@ mailboxes "~/Mail/Templates"
 mailboxes `find ~/Mail/Lip6/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|201.\/" |xargs`
 mailboxes `find ~/Mail/Lavabit/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
+mailboxes `find ~/Mail/Yahoo/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 
 # always sourced
 source ~/.mutt/muttrc.bindings
@@ -113,6 +114,7 @@ source ~/.mutt/colors.zenburn`echo $TERM | sed "s:.*-::"`
 folder-hook Lip6/* source ~/.mutt/lip6.muttrc
 folder-hook Lavabit/* source ~/.mutt/lavabit.muttrc
 folder-hook Rfnet/* source ~/.mutt/rfnet.muttrc
+folder-hook Yahoo/* source ~/.mutt/yahoo.muttrc
 folder-hook . "push <last-entry><current-middle>"
 
 # ???
