@@ -1,5 +1,5 @@
 ###
-# rfnet specific options
+# yahoo specific options
 ###
 
 color status yellow default
@@ -13,3 +13,4 @@ set mbox      = "+Yahoo/Archives"
 set record    = "+Rfnet/Sent"
 set postponed = "+Rfnet/Draft"
 set signature = "~/.mutt/yahoo.signature"                           # my signature file
+macro index za   "<shell-escape>/usr/bin/offlineimap -a Yahoo -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

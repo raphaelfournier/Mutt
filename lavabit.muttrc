@@ -2,7 +2,7 @@
 # lavabit specific options
 ###
 
-color status magenta default
+color status black yellow
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- fournier@lavabit.com --(%s/%S)-- (%P) ----"
 
 set from      = "fournier@lavabit.com"
@@ -23,3 +23,4 @@ save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @les
 save-hook "(~f fcouchet@april.org|~f @lifehacking.fr)" =Lavabit/Archive/Lifehacking
 save-hook "~C @lavabit.com" =Lavabit/Archive/
 subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr
+macro index za   "<shell-escape>/usr/bin/offlineimap -a Lavabit -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

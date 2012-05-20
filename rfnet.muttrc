@@ -2,7 +2,7 @@
 # rfnet specific options
 ###
 
-color status brightred default
+color status white blue
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- rfnet --(%s/%S)-- (%P) ----"
 
 set from      = "raphael@raphaelfournier.net"
@@ -15,3 +15,4 @@ set postponed = "+Rfnet/Drafts"
 set signature = "~/.mutt/rfnet.signature"                           # my signature file
 
 save-hook "~C @*.fournier.net" =Rfnet/Archives/
+macro index za   "<shell-escape>/usr/bin/offlineimap -a Rfnet -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
