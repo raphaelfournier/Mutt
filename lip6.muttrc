@@ -31,3 +31,4 @@ save-hook "(~C @complexnetworks.fr|~C lip6.fr)" =Lip6/Archives/
 subscribe tous@complexnetworks.fr flood@complexnetworks.fr tout-lip6@lip6.fr asr-forum@cines.fr asr.rescom@cines.fr techalert@ieee.org @ieee.org paris-hackerspaces-ia@googlegroups.com
 
 macro index za   "<shell-escape>/usr/bin/offlineimap -a Lip6 -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+macro index S   "<save-entry>+Lip6/Review"

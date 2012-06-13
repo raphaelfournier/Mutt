@@ -1,0 +1,17 @@
+###
+# gmx specific options
+###
+
+color status yellow default
+set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- vov@gmx.com --(%s/%S)-- (%P) ----"
+
+set from      = "vov@gmx.com"
+unmy_hdr *                      # remove all extra headers first.
+my_hdr From: vov <vov@gmx.com>
+set sendmail  = "/usr/bin/msmtp -a gmx"
+set mbox      = "+Lavabit/Archive"
+set record    = "+Lavabit/Sent"
+set postponed = "+Lavabit/Drafts"
+set signature = "~/.mutt/lavabit.signature"                           # my signature file
+
+macro index za   "<shell-escape>/usr/bin/offlineimap -a GMX -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
