@@ -7,11 +7,12 @@ application/x-java-jnlp-file;/opt/java/jre/bin/javaws %s
 text/html; lynx -dump -assume_charset=%{charset} -display_charset=utf-8 %s; copiousoutput; nametemplate=%s.html
 #text/html;/usr/bin/firefox %s;
 #text/html;/usr/bin/links %s; needsterminal
-#application/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
-application/pdf; /usr/bin/evince %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+application/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+#application/pdf; /usr/bin/evince %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 image/gif; firefox %s
 image/*; feh %s
 video/*; mplayer %s
+audio/*; mplayer %s
 #
 application/vnd.oasis.opendocument.text; soffice %s; test=test "$DISPLAY" != ""; 
 # powerpoints

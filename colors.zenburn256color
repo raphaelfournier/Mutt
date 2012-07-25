@@ -25,17 +25,16 @@ color tree       color109 color237
 #color index      color188 color237 ~N
 # ligne modifiee ci dessous
 color index      color246 color237 ~Q # replied messages
+color index      color225 color237 "(~d >10d ! ~Q ! ~l)" # unreplied messages
+color index      color213 color237 "(~d >30d ! ~Q ! ~l)" # unreplied messages
+color index      color201 color237 "(~d >60d ! ~Q ! ~l)" # unreplied messages
 color index      color223 color237 ~N # new messages
 color index      color153 color237 ~N~l # new messages from list
-color index      color188 color237 ~O # old messages
 color index      color174 color237 ~F # flagged
+#color index      color237 color174 ~F # flagged
 color index      color237 color232 ~D # deleted
 color index      color237 color108 ~T # tagged
 #http://www.mutt.org/doc/manual/manual-4.html#patterns
-
-# header stuff
-color hdrdefault color223 color237
-color header     color223 color237 "^Subject"
 
 # gpg stuff
 color body       color188 color237 "^gpg: Good signature.*"
@@ -57,7 +56,18 @@ color body       color174 color237 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
 # misc body stuff
 color attachment color174 color237 #Add-ons to the message
-color signature  color223 color237
+#color signature  color223 color236
+
+######################
+# header
+
+color hdrdefault color30    color236 
+color header	color132    color236    '^date:'
+color header	color153    color236    '^(to|cc|bcc):'
+color header	color120    color236    '^from:'
+color header	color178    color236    '^subject:'
+color header    color31     color236    '^user-agent:'
+color header	color29     color236    '^reply-to:'
 
 # quote levels
 color quoted     color108 color237

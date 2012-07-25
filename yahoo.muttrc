@@ -7,7 +7,7 @@ set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %
 
 set from      = "raphael@raphaelfournier.net"
 unmy_hdr *                      # remove all extra headers first.
-my_hdr From: RF <raph_fournier@yahoo.com>
+my_hdr From: RFS <raph_fournier@yahoo.com>
 set sendmail  = "/usr/bin/msmtp -a google"
 set mbox      = "+Yahoo/Archives"
 set record    = "+Rfnet/Sent"

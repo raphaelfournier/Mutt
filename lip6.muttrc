@@ -5,7 +5,7 @@
 color status black green
 
 unmy_hdr *                      # remove all extra headers first.
-my_hdr From: Raphaël Fournier <raphael.fournier@lip6.fr>
+my_hdr From: Raphaël Fournier-S'niehotta <raphael.fournier@lip6.fr>
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>--(%s/%S)-- (%P) ---"
 set from      = "raphael.fournier@lip6.fr"
 set sendmail  = "/usr/bin/msmtp -a lip6"

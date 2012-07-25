@@ -7,7 +7,7 @@ set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %
 
 set from      = "fournier@lavabit.com"
 unmy_hdr *                      # remove all extra headers first.
-my_hdr From: Raphaël Fournier <fournier@lavabit.com>
+my_hdr From: Raphaël Fournier-S'niehotta <fournier@lavabit.com>
 set sendmail  = "/usr/bin/msmtp -a lavabit"
 set mbox      = "+Lavabit/Archive"
 set record    = "+Lavabit/Sent"
@@ -20,7 +20,9 @@ save-hook "~C discussions@lifehacking.fr" =Lavabit/Archive/MailingLists
 save-hook "~C discussion@laquadrature.net" =Lavabit/Archive/MailingLists
 save-hook "~t liste-utopiaconf@mouvementutopia.org" =Lavabit/Archive/MailingLists
 save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @lesprimairescitoyennes.fr |~f campagne@francoishollande.fr | ~f fhollande@francoishollande.fr)" =Lavabit/Archive/PS
-save-hook "(~f fcouchet@april.org|~f @lifehacking.fr)" =Lavabit/Archive/Lifehacking
+#save-hook "(~f fcouchet@april.org|~f @lifehacking.fr)" =Lavabit/Archive/Lifehacking
+save-hook "(~f pleotin@gmail.com|~f didier.bernard1@free.fr|~f julien.brette@polytechnique.org|~f snouy@yahoo.com|~f lducloup@lagardere.fr | ~f wallacedavid@free.fr)" =Lavabit/Archive/Sport
 save-hook "~C @lavabit.com" =Lavabit/Archive/
+
 subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr
 macro index za   "<shell-escape>/usr/bin/offlineimap -a Lavabit -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

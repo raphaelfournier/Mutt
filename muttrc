@@ -119,6 +119,10 @@ folder-hook Yahoo/* source ~/.mutt/yahoo.muttrc
 folder-hook GMX/* source ~/.mutt/gmx.muttrc
 folder-hook . "push <last-entry><current-middle>"
 
+charset-hook ^us-ascii$ cp1252
+charset-hook ^iso-8859-1$ cp1252
+set assumed_charset="cp1252"
+
 # ???
 attachments   +A */.*
 attachments   -A text/x-vcard application/pgp.*
