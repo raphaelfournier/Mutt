@@ -1,12 +1,8 @@
 #text/html; iron '%s'; description=HTML Text; test=test -n "$DISPLAY"; needsterminal
 application/x-java-jnlp-file;/opt/java/jre/bin/javaws %s
 #text/html; opera '%s'; description=HTML Text; test=test -n "$DISPLAY"; needsterminal
-#text/html; /usr/bin/firefox -remote %s; description=HTML Text; test=test -n "$DISPLAY"; nametemplate=%s.html 
-#text/html; lynx -dump -force_html %s; needsterminal; copiousoutput;
-#text/html; elinks -dump -dump-charset iso-8859-1 -default-mime-type text/html %s; needsterminal; copiousoutput;
+text/html; /usr/bin/firefox %s;
 text/html; lynx -dump -assume_charset=%{charset} -display_charset=utf-8 %s; copiousoutput; nametemplate=%s.html
-#text/html;/usr/bin/firefox %s;
-#text/html;/usr/bin/links %s; needsterminal
 application/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 #application/pdf; /usr/bin/evince %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 image/gif; firefox %s

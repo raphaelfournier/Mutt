@@ -1,0 +1,18 @@
+###
+# RFS specific options
+###
+
+color status blue white
+set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- RFS --(%s/%S)-- (%P) ----"
+
+set from      = "raphael@fournier-sniehotta.fr"
+unmy_hdr *                      # remove all extra headers first.
+my_hdr From: Raphaël Fournier-S'niehotta <raphael@fournier-sniehotta.fr>
+set sendmail  = "/usr/bin/msmtp -a google"
+set mbox      = "+RFS/Archives"
+set record    = "+RFS/Sent"
+set postponed = "+RFS/Drafts"
+set signature = "~/.mutt/rfs.signature"                           # my signature file
+
+save-hook "~C @*.sniehotta.fr" =RFS/Archives/
+macro index za   "<shell-escape>/usr/bin/offlineimap -a RFS -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

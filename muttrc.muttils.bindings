@@ -26,4 +26,3 @@ pipe_decode=no wait_key=no<enter>\
 <enter-command> set pipe_decode=\$my_pipe_decode wait_key=\$my_wait_key \
 &my_pipe_decode &my_wait_key<enter>\
 " "text browse web"
-

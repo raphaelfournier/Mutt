@@ -18,11 +18,14 @@ save-hook "~C fabelier@googlegroups.com" =Lavabit/Archive/MailingLists
 save-hook "~C tmplab@lists.tmplab.org" =Lavabit/Archive/MailingLists
 save-hook "~C discussions@lifehacking.fr" =Lavabit/Archive/MailingLists
 save-hook "~C discussion@laquadrature.net" =Lavabit/Archive/MailingLists
+save-hook "~s FDV-AIV-CRI" =Lavabit/Archive/MailingLists
+save-hook "~C discussions@clavier-dvorak.org" =Lavabit/Archive/MailingLists
+save-hook "(~C debats@lautre.net|~C assemblee@listes.lautre.net)" =Lavabit/Archive/Lautre
 save-hook "~t liste-utopiaconf@mouvementutopia.org" =Lavabit/Archive/MailingLists
 save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @lesprimairescitoyennes.fr |~f campagne@francoishollande.fr | ~f fhollande@francoishollande.fr)" =Lavabit/Archive/PS
 #save-hook "(~f fcouchet@april.org|~f @lifehacking.fr)" =Lavabit/Archive/Lifehacking
-save-hook "(~f pleotin@gmail.com|~f didier.bernard1@free.fr|~f julien.brette@polytechnique.org|~f snouy@yahoo.com|~f lducloup@lagardere.fr | ~f wallacedavid@free.fr)" =Lavabit/Archive/Sport
+save-hook "(~C pleotin@gmail.com|~C didier.bernard1@free.fr|~C julien.brette@polytechnique.org|~C snouy@yahoo.com|~C lducloup@lagardere.fr | ~C wallacedavid@free.fr)" =Lavabit/Archive/Sport
 save-hook "~C @lavabit.com" =Lavabit/Archive/
 
-subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr
+subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr debats@lautre.net
 macro index za   "<shell-escape>/usr/bin/offlineimap -a Lavabit -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

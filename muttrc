@@ -12,8 +12,8 @@ set mailcap_path        = /home/raph/.mutt/mailcap                       # entry
 set tmpdir              = ~/.mutt/temp                          # where to keep temp files
 set editor              = "/usr/bin/vim +/^$"                   # use vim and skip to first blank line
 set ispell              = "/usr/bin/aspell -e -c"               # use aspell as ispell
-#set print_command       ="muttprint"
-set print_command       ="lpr -PKonica-PHARE-COMNET-BW"
+set print_command       ="muttprint"
+#set print_command       ="lpr -PKonica-PHARE-COMNET-BW"
 set query_command = "lbdbq '%s'"
 
 # main options
@@ -30,7 +30,7 @@ unset confirmappend                                             # don't ask, jus
 set quit                                                        # don't ask, just do!!
 unset mark_old                                                  # read/new is good enough for me
 set beep_new                                                    # bell on new mails
-set pipe_decode=no # required by muttils
+#set pipe_decode=no # required by muttils
 set thorough_search                                             # strip headers and eval mimes before searching
 
 # index options
@@ -95,19 +95,22 @@ color header brightwhite default '^X-Label:'
 mailboxes "~/Mail/Templates"
 mailboxes `find ~/Mail/Lip6/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|201.\/" |xargs`
 mailboxes `find ~/Mail/Lavabit/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
-mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
+mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Archives\|Spam" |xargs`
+mailboxes `find ~/Mail/RFS/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes `find ~/Mail/Yahoo/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
-mailboxes `find ~/Mail/GMX/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
+mailboxes `find ~/Mail/GMX/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
 
 # always sourced
 source ~/.mutt/muttrc.bindings
 source $alias_file                                              # required for functionality
 source ~/.mutt/lip6.muttrc                                      # defaut account
-#source ~/.mutt/colors.zenburn.perso                                   # source colors file
 source ~/.mutt/colors.zenburn`echo $TERM | sed "s:.*-::"`
+#source ~/.mutt/colors.vimbrant
+#source ~/.mutt/colors.xoria`echo $TERM | sed "s:.*-::"`
 #echo $TERM | sed "s:.*-::"
 #source ~/.mutt/gpg.rc                                     # gpg configuration 
 #source ~/.mutt/colors.solarized-light256
+#source ~/.mutt/colors.solarized-dark256
 #source ~/.mutt/colors.default
 #source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
 
@@ -115,6 +118,7 @@ source ~/.mutt/colors.zenburn`echo $TERM | sed "s:.*-::"`
 folder-hook Lip6/* source ~/.mutt/lip6.muttrc
 folder-hook Lavabit/* source ~/.mutt/lavabit.muttrc
 folder-hook Rfnet/* source ~/.mutt/rfnet.muttrc
+folder-hook RFS/* source ~/.mutt/rfs.muttrc
 folder-hook Yahoo/* source ~/.mutt/yahoo.muttrc
 folder-hook GMX/* source ~/.mutt/gmx.muttrc
 folder-hook . "push <last-entry><current-middle>"
@@ -131,3 +135,6 @@ attachments   +I text/plain
 attachments   -A message/external-body
 attachments   -I message/external-body
 
+#unset implicit_autoview
+set mime_forward_rest=ask-yes # forward attachments w/o autoview from attmenu
+#source ~/.bepo/muttrc.bepo
