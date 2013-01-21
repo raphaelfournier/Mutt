@@ -1,0 +1,18 @@
+###
+# rfnet specific options
+###
+
+color status white blue
+set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- altern --(%s/%S)-- (%P) ----"
+
+set from      = "raphaelfournier@altern.org"
+unmy_hdr *                      # remove all extra headers first.
+my_hdr From: Raphaël Fournier-S'niehotta <raphaelfournier@altern.org>
+set sendmail  = "/usr/bin/msmtp -a altern"
+set mbox      = "+Altern/Archives"
+set record    = "+Altern/Sent"
+set postponed = "+Altern/Drafts"
+set signature = "~/.mutt/altern.signature"                           # my signature file
+
+save-hook "~C @altern.org" =Altern/Archives/
+macro index za   "<shell-escape>/usr/bin/offlineimap -a Altern -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

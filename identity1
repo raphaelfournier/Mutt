@@ -1,0 +1,2 @@
+push <edit-from>^U'Raphael Fournier-Sniehotta <raphael.fournier@univ-paris13.fr>'\n
+set sendmail=\"/usr/bin/msmtp -a paris13\"

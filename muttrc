@@ -10,7 +10,8 @@ set certificate_file    = ~/.mutt/certificates                  # where to store
 set mailcap_path        = /home/raph/.mutt/mailcap                       # entrys for filetypes
 #set signature           = ~/.mutt/sig                           # my signature file
 set tmpdir              = ~/.mutt/temp                          # where to keep temp files
-set editor              = "/usr/bin/vim +/^$"                   # use vim and skip to first blank line
+#set editor              = "/usr/bin/vim +/^$"                   # use vim and skip to first blank line
+set editor              = "/usr/bin/vim -c 'set spell spelllang=fr'"                   # use vim and skip to first blank line
 set ispell              = "/usr/bin/aspell -e -c"               # use aspell as ispell
 set print_command       ="muttprint"
 #set print_command       ="lpr -PKonica-PHARE-COMNET-BW"
@@ -97,8 +98,9 @@ mailboxes `find ~/Mail/Lip6/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|201.
 mailboxes `find ~/Mail/Lavabit/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Archives\|Spam" |xargs`
 mailboxes `find ~/Mail/RFS/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
-mailboxes `find ~/Mail/Yahoo/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
+#mailboxes `find ~/Mail/Yahoo/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes `find ~/Mail/GMX/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
+mailboxes `find ~/Mail/Paris13/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
 
 # always sourced
 source ~/.mutt/muttrc.bindings
@@ -119,7 +121,7 @@ folder-hook Lip6/* source ~/.mutt/lip6.muttrc
 folder-hook Lavabit/* source ~/.mutt/lavabit.muttrc
 folder-hook Rfnet/* source ~/.mutt/rfnet.muttrc
 folder-hook RFS/* source ~/.mutt/rfs.muttrc
-folder-hook Yahoo/* source ~/.mutt/yahoo.muttrc
+folder-hook Paris13/* source ~/.mutt/paris13.muttrc
 folder-hook GMX/* source ~/.mutt/gmx.muttrc
 folder-hook . "push <last-entry><current-middle>"
 
@@ -138,3 +140,4 @@ attachments   -I message/external-body
 #unset implicit_autoview
 set mime_forward_rest=ask-yes # forward attachments w/o autoview from attmenu
 #source ~/.bepo/muttrc.bepo
+#set resolve=no

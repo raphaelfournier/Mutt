@@ -31,7 +31,7 @@ macro index,pager         A         "<pipe-message>abook --add-email<return>" "a
 macro pager,index,generic ,t        ":set sendmail=\"/usr/sbin/sendmail raph\""
 macro pager,index,generic ,e        "<enter-command>push <mail><enter>todo<enter>"
 macro pager,index,generic <f1>      "!links /usr/share/doc/mutt/manual.html" "Show Mutt documentation"
-macro pager,index,generic <f2>      ":set sendmail=\"/usr/bin/msmtp -a lip6\""
+macro pager,index,generic <f2>      ":set sendmail=\"/usr/bin/msmtp -a paris13\""
 macro pager,index,generic <f3>      ":set sendmail=\"/usr/bin/msmtp -a lip6-ext\""
 macro pager,index,generic <f4>      ":set sendmail=\"/usr/bin/msmtp -a lavabit\""
 macro pager,index,generic <f5>      ":set sendmail=\"/usr/bin/msmtp -a google\""
@@ -88,3 +88,13 @@ source ~/.mutt/muttrc.muttjump.bindings
 #          "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
 #          "search mail (using notmuch)"
 ######################################
+#
+#macro pager,index,generic s <clear-flag>N<save-entry>
+#macro index "<Esc>j" "<enter-command> \
+#set my_resolve=\$resolve my_confirmappend=\$confirmappend \
+#resolve=no confirmappend=no<enter>\
+#<clear-flag>N<save-message>+spam<enter>\
+#<enter-command> \
+#set confirmappend=\$my_confirmappend resolve=\$my_resolve \
+#&my_confirmappend &my_resolve<enter>"
+macro compose v ":source ~/.mutt/identity\`echo $(($(date +%s) % $(ls ~/.mutt/identity[0-9]* | wc -l) + 1))\`\n" 

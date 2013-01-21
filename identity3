@@ -1,0 +1,2 @@
+push <edit-from>^U'Raphaël Fournier-S\'niehotta <raphael@raphaelfournier.net>'\n
+set sendmail=\"/usr/bin/msmtp -a google\"
