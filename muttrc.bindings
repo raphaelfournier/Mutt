@@ -97,4 +97,4 @@ source ~/.mutt/muttrc.muttjump.bindings
 #<enter-command> \
 #set confirmappend=\$my_confirmappend resolve=\$my_resolve \
 #&my_confirmappend &my_resolve<enter>"
-macro compose v ":source ~/.mutt/identity\`echo $(($(date +%s) % $(ls ~/.mutt/identity[0-9]* | wc -l) + 1))\`\n" 
+macro compose v "<edit-from>^Uidentity.<tab>" "Select from" 

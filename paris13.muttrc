@@ -2,7 +2,7 @@
 # Paris13 specific options
 ###
 
-color status blue white
+color status black green
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- Paris13 --(%s/%S)-- (%P) ----"
 
 set from      = "raphael.fournier@univ-paris13.fr"
@@ -10,9 +10,9 @@ unmy_hdr *                      # remove all extra headers first.
 my_hdr From: Raphaël Fournier-S'niehotta <raphael.fournier@univ-paris13.fr>
 set sendmail  = "/usr/bin/msmtp -a paris13"
 set mbox      = "+Paris13/Archives"
-set record    = "+Paris13/Sent"
+set record    = "+Paris13/Archives"
 set postponed = "+Paris13/Drafts"
-set signature = "~/.mutt/paris13.signature"                           # my signature file
+#set signature = "~/.mutt/s13.signature"                           # my signature file
 
 save-hook "~C @univ-paris13.fr" =Paris13/Archives/
 macro index za   "<shell-escape>/usr/bin/offlineimap -a Paris13 -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

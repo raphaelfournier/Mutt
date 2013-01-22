@@ -8,7 +8,7 @@ set header_cache        = ~/.mutt/cache/headers                 # where to store
 set message_cachedir    = ~/.mutt/cache/bodies                  # where to store bodies
 set certificate_file    = ~/.mutt/certificates                  # where to store certs
 set mailcap_path        = /home/raph/.mutt/mailcap                       # entrys for filetypes
-#set signature           = ~/.mutt/sig                           # my signature file
+set signature           = ~/.mutt/signature                           # my signature file
 set tmpdir              = ~/.mutt/temp                          # where to keep temp files
 #set editor              = "/usr/bin/vim +/^$"                   # use vim and skip to first blank line
 set editor              = "/usr/bin/vim -c 'set spell spelllang=fr'"                   # use vim and skip to first blank line
@@ -20,7 +20,7 @@ set query_command = "lbdbq '%s'"
 # main options
 set mbox_type           = Maildir                               # mailbox type
 set folder              = ~/Mail                                # mailbox location
-set spoolfile           = "+Lip6/INBOX"                        #  default inbox
+set spoolfile           = "+Paris13/INBOX"                        #  default inbox
 set timeout             = 1800                                  # idle time before scanning
 set mail_check          = 0                                     # minimum time between scans
 set sort_alias          = alias                                 # sort alias file by alias
@@ -64,7 +64,7 @@ set folder_format="%2C %t %N %f %> %4s %d"
 set alias_format        = "%4n %t %-20a  %r"
 
 # composing mail
-set realname            = "Raphaël Fournier"                     # who am i?
+set realname            = "Raphaël Fournier-S'niehotta"         # who am i?
 set envelope_from                                               # which from?
 set sig_dashes                                                  # dashes before my sig... sweet
 set sig_on_top                                                  # signature above quoted reply
@@ -105,8 +105,8 @@ mailboxes `find ~/Mail/Paris13/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|S
 # always sourced
 source ~/.mutt/muttrc.bindings
 source $alias_file                                              # required for functionality
-source ~/.mutt/lip6.muttrc                                      # defaut account
-source ~/.mutt/colors.zenburn`echo $TERM | sed "s:.*-::"`
+source ~/.mutt/paris13.muttrc                                      # defaut account
+source ~/.mutt/colors/colors.zenburn`echo $TERM | sed "s:.*-::"`
 #source ~/.mutt/colors.vimbrant
 #source ~/.mutt/colors.xoria`echo $TERM | sed "s:.*-::"`
 #echo $TERM | sed "s:.*-::"
