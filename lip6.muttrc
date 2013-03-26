@@ -4,15 +4,13 @@
 
 color status black green
 
-unmy_hdr *                      # remove all extra headers first.
-my_hdr From: Raphaël Fournier-S'niehotta <raphael.fournier@lip6.fr>
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>--(%s/%S)-- (%P) ---"
 set from      = "raphael.fournier@lip6.fr"
 set sendmail  = "/usr/bin/msmtp -a lip6"
 set mbox      = "+Lip6/Archives"
 set record    = "+Lip6/Sent"
 set postponed = "+Lip6/Drafts"
-set signature = "~/.mutt/lip6.signature"                           # my signature file
+set signature = "~/.mutt/signature"                           # my signature file
 
 save-hook "~s flood" =Lip6/Archives/
 save-hook "~f @plus.google.com" =Lip6/Archives/GPlus

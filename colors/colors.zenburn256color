@@ -27,7 +27,7 @@ color tree       color109 color237
 color index      color246 color237 ~Q # replied messages
 color index      color225 color237 "(~d >10d ! ~Q ! ~l)" # unreplied messages
 color index      color213 color237 "(~d >30d ! ~Q ! ~l)" # unreplied messages
-color index      color201 color237 "(~d >60d ! ~Q ! ~l)" # unreplied messages
+color index      color226 color237 "(~d >60d ! ~Q ! ~l)" # unreplied messages
 color index      color223 color237 ~N # new messages
 color index      color153 color237 ~N~l # new messages from list
 color index      color174 color237 ~F # flagged

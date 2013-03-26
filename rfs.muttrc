@@ -6,8 +6,6 @@ color status blue white
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- RFS --(%s/%S)-- (%P) ----"
 
 set from      = "raphael@fournier-sniehotta.fr"
-unmy_hdr *                      # remove all extra headers first.
-my_hdr From: Raphaël Fournier-S'niehotta <raphael@fournier-sniehotta.fr>
 set sendmail  = "/usr/bin/msmtp -a rfs"
 set mbox      = "+RFS/Archives"
 set record    = "+RFS/Sent"

@@ -6,8 +6,7 @@ color status white blue
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- altern --(%s/%S)-- (%P) ----"
 
 set from      = "raphaelfournier@altern.org"
-unmy_hdr *                      # remove all extra headers first.
-my_hdr From: Raphaël Fournier-S'niehotta <raphaelfournier@altern.org>
+set realnamei = "Raphaël Fournier-S'niehotta"
 set sendmail  = "/usr/bin/msmtp -a altern"
 set mbox      = "+Altern/Archives"
 set record    = "+Altern/Sent"
