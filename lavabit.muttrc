@@ -25,6 +25,7 @@ save-hook "~t liste-utopiaconf@mouvementutopia.org" =Archives/MailingLists
 save-hook "(~C debats@lautre.net|~C assemblee@listes.lautre.net)" =Archives/MailingLists
 save-hook "(~C pleotin@gmail.com|~C didier.bernard1@free.fr|~C julien.brette@polytechnique.org|~C snouy@yahoo.com|~C lducloup@lagardere.fr | ~C wallacedavid@free.fr)" =Archives/Sport
 save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @lesprimairescitoyennes.fr |~f campagne@francoishollande.fr | ~f fhollande@francoishollande.fr)" =Archives/PS
+save-hook "~C fournier@lavabit.com" =Lavabit/Archive
 
-subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr debats@lautre.net tuppervim@mozfr.org evenements@lists.parinux.org agenda@lists.ps18jbc.fr
+subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr debats@lautre.net tuppervim@mozfr.org agenda@lists.ps18jbc.fr moodleforum165@www.moodle-cri.org federations@parti-socialiste.fr evenements@lists.parinux.org
 macro index za   "<shell-escape>/usr/bin/offlineimap -a Lavabit -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

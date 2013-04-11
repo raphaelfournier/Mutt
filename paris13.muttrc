@@ -12,9 +12,11 @@ set record    = "+Paris13/Archives"
 set postponed = "+Paris13/Drafts"
 #set signature = "~/.mutt/s13.signature"                           # my signature file
 
-#save-hook . "=Paris13/Archives/"
-save-hook "~C raphael.fournier@univ-paris13.fr|~C raphael.fournier@.*lip6.fr|~C raphael@fournier-sniehotta.fr" "=Paris13/Archives/"
 save-hook "~C @complexnetworks.fr" "=Paris13/Archives/"
 save-hook "~f @univ-paris13.fr" "=Paris13/Archives/"
 save-hook "~C w2s@lists.lacantine.org" =Archives/MailingLists
+save-hook "~C asr-forum@cines.fr" =Archives/MailingLists
+save-hook "~C raphael.fournier@univ-paris13.fr|~C raphael.fournier@.*lip6.fr|~C raphael@fournier-sniehotta.fr" "=Paris13/Archives/"
+
 macro index za   "<shell-escape>/usr/bin/offlineimap -a Paris13 -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+subscribe asr-forum@cines.fr w2s@lists.lacantine.org
