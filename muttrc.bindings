@@ -71,8 +71,8 @@ macro index ",z" ":set editor=/home/raph/.mutt/edittag\ne:set editor=$my_vi\njN"
 
 ######################################
 # mutt macros for mu
-macro index ,s "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Mail/search " "mu find"
-macro index ,d "<change-folder-readonly>~/Mail/search<enter><last-entry><current-middle>" "mu find results"
+#macro index ,s "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Mail/search " "mu find"
+#macro index ,d "<change-folder-readonly>~/Mail/search<enter><last-entry><current-middle>" "mu find results"
 ######################################
 
 ######################################
@@ -82,10 +82,26 @@ source ~/.mutt/muttrc.muttjump.bindings
 
 ######################################
 # mutt macros for notmuch
-#macro generic ,s "<enter-command>set my_cmd = \`$HOME/.mutt/mairix_search\`<return><enter-command>push \$my_cmd<return>" "search messages"
-#macro index ,n \
-#          "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
-#          "search mail (using notmuch)"
+macro index ,s \
+"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+<shell-escape>notmuch-mutt -r --prompt search<enter>\
+<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+      "notmuch: search mail"
+
+macro index ,d \
+"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+<pipe-message>notmuch-mutt -r thread<enter>\
+<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+      "notmuch: reconstruct thread"
+
+macro index ,f \
+"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+<pipe-message>notmuch-mutt tag -- -inbox<enter>\
+<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+      "notmuch: remove message from inbox"
+
 ######################################
 #
 #macro pager,index,generic s <clear-flag>N<save-entry>

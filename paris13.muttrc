@@ -13,7 +13,10 @@ set postponed = "+Paris13/Drafts"
 #set signature = "~/.mutt/s13.signature"                           # my signature file
 
 save-hook "~C @complexnetworks.fr" "=Paris13/Archives/"
+save-hook "~t @univ-paris13.fr" "=Paris13/Archives/"
 save-hook "~f @univ-paris13.fr" "=Paris13/Archives/"
+save-hook "~f www@tibre.lip6.fr" "=Archives/MAPAPserveur"
+save-hook "~f delegue@dr2.cnrs.fr" "=Paris13/Archives/"
 save-hook "~C w2s@lists.lacantine.org" =Archives/MailingLists
 save-hook "~C asr-forum@cines.fr" =Archives/MailingLists
 save-hook "~C raphael.fournier@univ-paris13.fr|~C raphael.fournier@.*lip6.fr|~C raphael@fournier-sniehotta.fr" "=Paris13/Archives/"

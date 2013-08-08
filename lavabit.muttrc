@@ -8,7 +8,7 @@ set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %
 set from      = "fournier@lavabit.com"
 set sendmail  = "/usr/bin/msmtp -a lavabit"
 set mbox      = "+Lavabit/Archive"
-set record    = "+Lavabit/Sent"
+set record    = "+Lavabit/Archive"
 set postponed = "+Lavabit/Drafts"
 set signature = "~/.mutt/lavabit.signature"                           # my signature file
 
@@ -19,6 +19,11 @@ save-hook "~C discussion@laquadrature.net" =Archives/MailingLists
 save-hook "~C agenda@lists.ps18jbc.fr" =Archives/PS
 save-hook "~C evenements@lists.parinux.org" =Archives/MailingLists
 save-hook "~C tuppervim@mozfr.org" =Archives/MailingLists
+save-hook "~f @meetup.com" =Archives/MailingLists
+save-hook "~f contact@mysciencework.com" =Archives/MailingLists
+save-hook "~f contact@minorites.org" =Archives/MailingLists
+save-hook "~f alfred@bonsplans.mercialfred.com" =Archives/MailingLists
+save-hook "~f newsletters@artips.eu" =Archives/MailingLists
 save-hook "~s FDV-AIV-CRI" =Archives/MailingLists
 save-hook "~C discussions@clavier-dvorak.org" =Archives/MailingLists
 save-hook "~t liste-utopiaconf@mouvementutopia.org" =Archives/MailingLists
@@ -27,5 +32,5 @@ save-hook "(~C pleotin@gmail.com|~C didier.bernard1@free.fr|~C julien.brette@pol
 save-hook "(~f lacoopol.fr|~f @parti-socialiste.fr|~C @ps-paris13est.org|~C @lesprimairescitoyennes.fr |~f campagne@francoishollande.fr | ~f fhollande@francoishollande.fr)" =Archives/PS
 save-hook "~C fournier@lavabit.com" =Lavabit/Archive
 
-subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr debats@lautre.net tuppervim@mozfr.org agenda@lists.ps18jbc.fr moodleforum165@www.moodle-cri.org federations@parti-socialiste.fr evenements@lists.parinux.org
+subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr debats@lautre.net tuppervim@mozfr.org agenda@lists.ps18jbc.fr moodleforum165@www.moodle-cri.org federations@parti-socialiste.fr evenements@lists.parinux.org info@meetup.com newsletters@artips.eu
 macro index za   "<shell-escape>/usr/bin/offlineimap -a Lavabit -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

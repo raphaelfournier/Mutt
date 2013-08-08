@@ -15,6 +15,7 @@ text/calendar; /usr/bin/gcalcli --https import %s;
 #application/ics; mutt-ical.py -i -e "raphael@raphaelfournier.net" %s
 #
 application/vnd.oasis.opendocument.text; soffice %s; test=test "$DISPLAY" != ""; 
+application/vnd.oasis.opendocument.spreadsheet; soffice %s; test=test "$DISPLAY" != "";
 # powerpoints
 application/vnd.ms-powerpoint; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.ppt
 application/x-mspowerpoint; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.ppt

@@ -1,0 +1,34 @@
+# notmuch
+#macro index ,S "<enter-command>unset wait_key<enter><shell-escape>~/bin/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" "search mail (using notmuch)"
+#macro index ,s "<enter-command>unset wait_key<enter><pipe-message>~/bin/mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" "search and reconstruct owning thread (using notmuch)"
+
+#set nm_default_uri="notmuch://Mail/Paris13" # path to the maildir
+#set virtual_spoolfile=yes                          # enable virtual folders
+#set sendmail="/usr/bin/nm_sendmail"            # enables parsing of outgoing mail
+#virtual-mailboxes \
+    #"INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
+    #"Unread"    "notmuch://?query=tag:unread"\
+    #"Starred"   "notmuch://?query=tag:*"\
+    #"Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
+# notmuch bindings
+#macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
+#macro index A "<modify-labels>+archive -unread -inbox\\n"        # tag as Archived
+#macro index I "<modify-labels>-inbox -unread\\n"                 # removed from inbox
+#macro index S "<modify-labels-then-hide>-inbox -unread +junk\\n" # tag as Junk mail
+#macro index + "<modify-labels>+*\\n<sync-mailbox>"               # tag as starred
+#macro index - "<modify-labels>-*\\n<sync-mailbox>"               # tag as unstarred
+
+# sidebar
+#set sidebar_width   = 20
+#set sidebar_visible = yes               # set to "no" to disable sidebar view at startup
+#color sidebar_new yellow default
+## sidebar bindings
+#bind index <left> sidebar-prev          # got to previous folder in sidebar
+#bind index <right> sidebar-next         # got to next folder in sidebar
+#bind index <space> sidebar-open         # open selected folder from sidebar
+## sidebar toggle
+#macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
+#macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
+#macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar
+
+
