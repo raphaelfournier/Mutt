@@ -1,0 +1,46 @@
+##
+# ~/.mutt/muttrc
+###
+
+# directories and commands
+set alias_file          = ~/.mutt/aliases                         # alias file
+set header_cache        = ~/.mutt/cache/headers                 # where to store headers
+set message_cachedir    = ~/.mutt/cache/bodies                  # where to store bodies
+set certificate_file    = ~/.mutt/certificates                  # where to store certs
+set mailcap_path        = /home/raph/.mutt/mailcap                       # entrys for filetypes
+set signature           = ~/.mutt/signature                           # my signature file
+set tmpdir              = ~/.mutt/temp                          # where to keep temp files
+set editor              = "/usr/bin/vim +/^$/"                   # use vim and skip to first blank line
+#set editor              = "/usr/bin/vim -c 'set spell spelllang=fr' +/^$/"                   # use vim and skip to first blank line
+set ispell              = "/usr/bin/aspell -e -c"               # use aspell as ispell
+set print_command       ="muttprint"
+#set print_command       ="lpr -PKonica-PHARE-COMNET-BW"
+set query_command = "lbdbq '%s'"
+
+# main options
+set mbox_type           = Maildir                               # mailbox type
+set folder              = ~/Mail                                # mailbox location
+set spoolfile           = "+Paris13/INBOX"                        #  default inbox
+set timeout             = 1800                                  # idle time before scanning
+set mail_check          = 0                                     # minimum time between scans
+set sort_alias          = alias                                 # sort alias file by alias
+set reverse_alias                                               # show names from alias file in index
+#unset move                                                      # gmail does that
+#set pipe_decode=no # required by muttils
+
+# index options
+#set sort_aux            = reverse-last-date-received            # like gmail
+
+# pager options
+#set pager_index_lines   = 10                                    # number of index lines to show 
+#set pager_context       = 5                                     # number of context lines to show
+#set pager_stop                                                  # don't go to next message automatically
+#set menu_scroll                                                 # scroll in menus 
+#set smart_wrap                                                  # don't split words
+#set tilde                                                       # show tildes like in vim
+#unset markers                                                   # no ugly plus signs
+#auto_view text/html                                             # view html automatically
+#auto_view text/calendar
+#alternative_order text/plain text/enriched text/html            # save html for last
+#set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+

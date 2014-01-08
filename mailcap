@@ -4,6 +4,7 @@ application/x-java-jnlp-file;/opt/java/jre/bin/javaws %s
 #text/calendar; /usr/bin/firefox %s;
 text/html; /usr/bin/firefox %s;
 text/html; lynx -dump -assume_charset=%{charset} -display_charset=utf-8 %s; copiousoutput; nametemplate=%s.html
+text/calendar; /usr/bin/gcalcli import -v %s;
 application/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 #application/pdf; /usr/bin/evince %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 image/gif; firefox %s
@@ -11,7 +12,6 @@ image/*; feh %s
 video/*; mplayer %s
 audio/*; mplayer %s
 #
-text/calendar; /usr/bin/gcalcli --https import %s;
 #application/ics; mutt-ical.py -i -e "raphael@raphaelfournier.net" %s
 #
 application/vnd.oasis.opendocument.text; soffice %s; test=test "$DISPLAY" != ""; 
@@ -29,6 +29,8 @@ application/ms-Excel; soffice %s; test=test "$DISPLAY" != ""; description=XLS; n
 application/excel; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
 application/xls; soffice %s; test=test "$DISPLAY" != ""; description=XLS; nametemplate=%s.xls
 #word
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; soffice %s; test=test "$DISPLAY" != ""; 
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; soffice %s; test=test "$DISPLAY" != ""; 
 application/vnd.msword; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc
 application/msword; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc
 application/doc; soffice %s; test=test "$DISPLAY" != ""; description=PPT; nametemplate=%s.doc

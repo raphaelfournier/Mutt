@@ -10,8 +10,7 @@ set certificate_file    = ~/.mutt/certificates                  # where to store
 set mailcap_path        = /home/raph/.mutt/mailcap                       # entrys for filetypes
 set signature           = ~/.mutt/signature                           # my signature file
 set tmpdir              = ~/.mutt/temp                          # where to keep temp files
-#set editor              = "/usr/bin/vim +/^$"                   # use vim and skip to first blank line
-set editor              = "/usr/bin/vim -c 'set spell spelllang=fr'"                   # use vim and skip to first blank line
+set editor              = "/usr/bin/vim -c 'set spell spelllang=fr' -c startinsert"                   # use vim and skip to first blank line
 set ispell              = "/usr/bin/aspell -e -c"               # use aspell as ispell
 set print_command       ="muttprint"
 #set print_command       ="lpr -PKonica-PHARE-COMNET-BW"
@@ -33,6 +32,7 @@ unset mark_old                                                  # read/new is go
 set beep_new                                                    # bell on new mails
 #set pipe_decode=no # required by muttils
 set thorough_search                                             # strip headers and eval mimes before searching
+set recall = no
 
 # index options
 set sort                = threads                               # like gmail 
@@ -72,18 +72,19 @@ set sig_dashes                                                  # dashes before 
 #set edit_headers                                                # show headers when composing
 set fast_reply                                                  # skip to compose when replying
 #set sendmail_wait       = -1                                    # don't wait for sending... to complete
-set askcc=no                                                       # ask for CC:
-set fcc_attach                                                  # save attachments with the body
-unset mime_forward                                              # forward attachments as part of body
-set forward_format      = "Re: %s"                             # format for subject when forwarding
-set forward_decode                                              # decode when forwarding
+set askcc=no                                 # ask for CC:
+set fcc_attach                            # save attachments with the body
+unset mime_forward                        # forward attachments as part of body
+set forward_format      = "Re: %s"       # format for subject when forwarding
+set forward_decode                        # decode when forwarding
 set mime_forward=yes
 set mime_forward_rest=yes
-set attribution         = "\n\nLe %d, %n a écrit:"                    # set the attribution
-set reply_to                                                    # reply to Reply to: field
-set reverse_name                                                # reply as whomever it was to
-set include                                                     # include message in replies
-set forward_quote                                               # include message in forwards
+
+set attribution         = "\n\nLe %d, %n a écrit:"          # set the attribution
+set reply_to                              # reply to Reply to: field
+set reverse_name                          # reply as whomever it was to
+set include                               # include message in replies
+set forward_quote                         # include message in forwards
 set reverse_name = yes
 alternates raphael.fournier@complexnetworks.lip6.fr|raphael@raphaelfournier.net|fournier@lavabit.com|raphael@fournier-sniehotta.fr|raphael.fournier@lip6.fr
 
@@ -110,7 +111,7 @@ source ~/.mutt/gpg.muttrc
 source ~/.mutt/paris13.muttrc                                      # defaut account
 source ~/.mutt/colors/colors.zenburn`echo $TERM | sed "s:.*-::"`
 #source ~/.mutt/colors.vimbrant
-#source ~/.mutt/colors.xoria`echo $TERM | sed "s:.*-::"`
+#source ~/.mutt/colors/colors.xoria`echo $TERM | sed "s:.*-::"`M
 #echo $TERM | sed "s:.*-::"
 #source ~/.mutt/gpg.rc                                     # gpg configuration 
 #source ~/.mutt/colors.solarized-light256
@@ -140,7 +141,4 @@ attachments   +I text/plain
 attachments   -A message/external-body
 attachments   -I message/external-body
 
-#unset implicit_autoview
 set mime_forward_rest=ask-yes # forward attachments w/o autoview from attmenu
-#source ~/.bepo/muttrc.bepo
-#set resolve=no
