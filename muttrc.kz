@@ -1,0 +1,171 @@
+# notmuch
+set nm_default_uri="notmuch:///home/raph/Mail/" # path to the maildir
+set virtual_spoolfile=yes                          # enable virtual folders
+set sendmail="/PATH/TO/bin/nm_sendmail"            # enables parsing of outgoing mail
+virtual-mailboxes \
+    "TODO"   "notmuch://?query=tag:todo"\
+    "Unread"    "notmuch://?query=tag:unread and NOT tag:lists"\
+    "Inbox"     "notmuch://?query=tag:inbox and NOT tag:archive"\
+    "Waiting"   "notmuch://?query=tag:waiting"\
+    "Archives13" "notmuch://?query=tag:archive and date:01/01/13..12/31/13"\
+    "Archives14" "notmuch://?query=tag:archive and date:01/01/14.."\
+    " AMMICO"   "notmuch://?query=subject:ammico or tag:ammico"\
+    " RecoSociale"   "notmuch://?query=subject:RecoSociale"\
+    "Lists"   "notmuch://?query=tag:lists"\
+    "Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
+    #"Starred"   "notmuch://?query=tag:*"\
+
+# notmuch bindings
+macro index ,s "<vfolder-from-query>"              # looks up a hand made query
+macro index A "<modify-labels>+archive -unread -inbox \n<sync-mailbox>"        # tag as Archived
+macro index I "<modify-labels>-inbox -unread\\n"                 # removed from inbox
+macro index S "<modify-labels-then-hide>-inbox -unread +junk\\n" # tag as Junk mail
+macro index + "<modify-labels>+"
+macro index - "<modify-labels>-*\\n<sync-mailbox>"               # tag as unstarred
+macro index gt "<modify-labels>+todo -unread \n<sync-mailbox>"  # tag as TODO
+#macro index - "<modify-labels>-*\\n<sync-mailbox>"               # tag as unstarred
+# sidebar
+set sidebar_width   = 18
+set sidebar_visible = no               # set to "no" to disable sidebar view at startup
+color sidebar_new yellow default
+# sidebar bindings
+bind index <left> sidebar-prev          # got to previous folder in sidebar
+bind index <right> sidebar-next         # got to next folder in sidebar
+bind index <space> sidebar-open    
+# sidebar toggle
+macro index ,@) "<enter-command> set sidebar_visible=no; macro index gg ,@( 'Toggle sidebar'<Enter>"
+macro index ,@( "<enter-command> set sidebar_visible=yes; macro index gg ,@) 'Toggle sidebar'<Enter>"
+macro index gg ,@( 'Toggle sidebar'      # toggle the sidebar
+
+# directories and commands
+set alias_file          = ~/.mutt/aliases                         # alias file
+set header_cache        = ~/.mutt/cache/headers                 # where to store headers
+set message_cachedir    = ~/.mutt/cache/bodies                  # where to store bodies
+set certificate_file    = ~/.mutt/certificates                  # where to store certs
+set mailcap_path        = /home/raph/.mutt/mailcap                       # entrys for filetypes
+set signature           = ~/.mutt/signature                           # my signature file
+set tmpdir              = ~/.mutt/temp                          # where to keep temp files
+set editor              = "/usr/bin/vim -c 'set spell spelllang=fr' -c startinsert"                   # use vim and skip to first blank line
+set ispell              = "/usr/bin/aspell -e -c"               # use aspell as ispell
+set print_command       ="muttprint"
+#set print_command       ="lpr -PKonica-PHARE-COMNET-BW"
+set query_command = "lbdbq '%s'"
+
+source ~/.mutt/muttrc.bindings
+source ~/.mutt/colors/colors.zenburn`echo $TERM | sed "s:.*-::"`
+source ~/.mutt/paris13.muttrc                                      # defaut account
+
+set alias_file          = ~/.mutt/aliases                         # alias file
+source $alias_file                                              # required for functionality
+source ~/.mutt/gpg.muttrc
+
+set timeout             = 1800                                  # idle time before scanning
+set mail_check          = 0                                     # minimum time between scans
+set sort_alias          = alias                                 # sort alias file by alias
+set reverse_alias                                               # show names from alias file in index
+#unset move                                                      # gmail does that
+set delete                                                      # don't ask, just do
+unset confirmappend                                             # don't ask, just do!
+set quit                                                        # don't ask, just do!!
+unset mark_old                                                  # read/new is good enough for me
+set beep_new                                                    # bell on new mails
+#set pipe_decode=no # required by muttils
+set thorough_search                                             # strip headers and eval mimes before searching
+set recall = no
+
+# index options
+set sort                = threads                               # like gmail 
+#set sort_aux            = reverse-last-date-received            # like gmail
+set uncollapse_jump                                             # don't collapse on an unread message 
+set sort_re                                                     # thread based on regex
+set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# pager options
+#set pager_index_lines   = 10                                    # number of index lines to show 
+#set pager_format = "-%Z- %C/%m: %-20.20n   %s%*  -- %?g?(%g)? - (%P)"
+#set pager_context       = 5                                     # number of context lines to show
+#set pager_stop                                                  # don't go to next message automatically
+set menu_scroll                                                 # scroll in menus 
+set smart_wrap                                                  # don't split words
+set tilde                                                       # show tildes like in vim
+unset markers                                                   # no ugly plus signs
+auto_view text/html                                             # view html automatically
+auto_view text/calendar
+alternative_order text/plain text/enriched text/html            # save html for last
+set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+tag-transforms "inbox"   "i"   \
+                   "unread"  "u"   \
+                   "replied" "↻ "  \
+                   "sent"    "➥ "  \
+                   "todo"    "T"   \
+                   "deleted" "DEL" \
+                   "invites" "CAL"
+
+tag-formats "inbox"   "GI" \
+                  "unread"  "GU" \
+                  "replied" "GR" \
+                  "sent"    "GS" \
+                  "todo"    "Gt" \
+                  "deleted" "GD" \
+                  "invites" "Gi"
+#set nm_record = yes
+#set nm_record_tags = "-inbox,archive
+
+# formats
+set date_format         = "%d/%m/%y %R"
+#set date_format         = "%d/%m/%y %R"
+#set index_format        = "%4C %Z %D %-20.20F %?y?[%.20Y] ?%s %* %4c" #mine
+set index_format        = "%4C %Z %D %-15.15F %?y?[%.20Y] ?%s  %*  %?GU?%GU& ? %?GR?%GR& ? %?GI?%GI& ? %4c"
+#set index_format='4C %S %[%y.%m.%d] %-18.18n %?GU?%GU& ? %?GR?%GR& ? %?GI?%GI& ? %s'
+#set index_format        = "%4C %Z %{%b %d} %-15.15L (%4c) %s" # default
+#
+set folder_format="%2C %t %N %f %> %4s %d" 
+#set folder_format="%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f" # default
+#set status_format       = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>- (%P) ---"
+set alias_format        = "%4n %t %-20a  %r"
+
+# composing mail
+set realname            = "Raphaël Fournier-S'niehotta"         # who am i?
+set envelope_from                                               # which from?
+set sig_dashes                                                  # dashes before my sig... sweet
+#set sig_on_top                                                  # signature above quoted reply
+#set edit_headers                                                # show headers when composing
+set fast_reply                                                  # skip to compose when replying
+#set sendmail_wait       = -1                                    # don't wait for sending... to complete
+set askcc=no                                 # ask for CC:
+set fcc_attach                            # save attachments with the body
+unset mime_forward                        # forward attachments as part of body
+set forward_format      = "Re: %s"       # format for subject when forwarding
+set forward_decode                        # decode when forwarding
+set mime_forward=yes
+set mime_forward_rest=yes
+
+set attribution         = "\n\nLe %d, %n a écrit:"          # set the attribution
+set reply_to                              # reply to Reply to: field
+set reverse_name                          # reply as whomever it was to
+set include                               # include message in replies
+set forward_quote                         # include message in forwards
+set reverse_name = yes
+alternates raphael.fournier@complexnetworks.lip6.fr|raphael@raphaelfournier.net|fournier@lavabit.com|raphael@fournier-sniehotta.fr|raphael.fournier@lip6.fr
+
+# headers to show
+ignore *                                                        # ignore all headers
+unignore from: to: cc: date: subject: X-Label:                  # show only these
+hdr_order from: to: cc: date: subject: X-Label:                 # and in this order
+color header brightwhite default '^X-Label:'
+set charset="utf-8"
+charset-hook ^us-ascii$ cp1252
+charset-hook ^iso-8859-1$ cp1252
+set assumed_charset="cp1252"
+
+# ???
+attachments   +A */.*
+attachments   -A text/x-vcard application/pgp.*
+attachments   -A application/x-pkcs7-.*
+attachments   +I text/plain
+attachments   -A message/external-body
+attachments   -I message/external-body
+
+set mime_forward_rest=ask-yes # forward attachments w/o autoview from attmenu
+
