@@ -3,16 +3,30 @@ set nm_default_uri="notmuch:///home/raph/Mail/" # path to the maildir
 set virtual_spoolfile=yes                          # enable virtual folders
 set sendmail="/PATH/TO/bin/nm_sendmail"            # enables parsing of outgoing mail
 virtual-mailboxes \
-    "TODO"   "notmuch://?query=tag:todo"\
-    "Unread"    "notmuch://?query=tag:unread and NOT tag:lists"\
-    "Inbox"     "notmuch://?query=tag:inbox and NOT tag:archive"\
-    "Waiting"   "notmuch://?query=tag:waiting"\
-    "Archives13" "notmuch://?query=tag:archive and date:01/01/13..12/31/13"\
-    "Archives14" "notmuch://?query=tag:archive and date:01/01/14.."\
-    " AMMICO"   "notmuch://?query=subject:ammico or tag:ammico"\
-    " RecoSociale"   "notmuch://?query=subject:RecoSociale"\
-    "Lists"   "notmuch://?query=tag:lists"\
-    "Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
+  "INBOX" "notmuch://?query=folder:Paris13/INBOX" \
+  "TODO"  "notmuch://?query=folder:in boxAND NOT tag:archive AND tag:todo" \
+  " AMMICO"   "notmuch://?query=subject:ammico or tag:ammico"\
+  " RecoSociale"   "notmuch://?query=subject:RecoSociale"\
+  "All lists" "notmuch://?query=folder:in boxAND tag:lists AND folder:in AND NOT tag:archive" \
+  "--- Archives ---" "notmuch://?query=tag:none-arch" \
+  "All"   "notmuch://?query=tag:archive" \
+  "Done"  "notmuch://?query=folder:Paris13 AND (tag:archive OR NOT folder:in) AND tag:todo" \
+  "Archives13" "notmuch://?query=tag:archive and date:01/01/13..12/31/13"\
+  "Archives14" "notmuch://?query=tag:archive and date:01/01/14.."\
+  #"A/Foo" "notmuch://?query=folder:work AND (folder:foo OR tag:foo) AND (tag:archive OR NOT folder:in))" \
+  #"A/Bar" "notmuch://?query=folder:work AND (folder:bar OR tag:bar) AND (tag:archive OR NOT folder:in))" \
+  #"Foo"   "notmuch://?query=folder:work AND (folder:foo OR tag:foo) AND folder:in AND NOT tag:archive" \
+  #"Bar"   "notmuch://?query=folder:work AND (folder:bar OR tag:bar) AND folder:in AND NOT tag:archive" \
+  
+#virtual-mailboxes \
+    #"TODO"   "notmuch://?query=tag:todo"\
+    #"Unread"    "notmuch://?query=tag:unread and NOT tag:lists"\
+    #"Inbox"     "notmuch://?query=tag:inbox and NOT tag:archive"\
+    #"Waiting"   "notmuch://?query=tag:waiting"\
+    #"Archives13" "notmuch://?query=tag:archive and date:01/01/13..12/31/13"\
+    #"Archives14" "notmuch://?query=tag:archive and date:01/01/14.."\
+    #"Lists"   "notmuch://?query=tag:lists"\
+    #"Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
     #"Starred"   "notmuch://?query=tag:*"\
 
 # notmuch bindings
@@ -24,6 +38,20 @@ macro index + "<modify-labels>+"
 macro index - "<modify-labels>-*\\n<sync-mailbox>"               # tag as unstarred
 macro index gt "<modify-labels>+todo -unread \n<sync-mailbox>"  # tag as TODO
 #macro index - "<modify-labels>-*\\n<sync-mailbox>"               # tag as unstarred
+
+# archive tagged messages
+macro index aa "<tag-prefix><modify-labels>+archive -inbox<Enter><tag-prefix><tag-entry><sync-mailbox>"
+# stuff I need to do
+macro index gt "<modify-labels>+todo<Enter><sync-mailbox>"
+macro index gT "<modify-labels>-todo<Enter><sync-mailbox>"   # don't need to do it after all
+# mark/arch as foo
+macro index gf "<modify-labels>+foo<Enter><sync-mailbox>"
+macro index af "<tag-prefix><modify-labels>+foo +archive -inbox<Enter><tag-prefix><tag-entry><sync-mailbox>"
+# mark/arch as bar
+macro index gb "<modify-labels>+bar<Enter><sync-mailbox>"
+macro index gb "<tag-prefix><modify-labels>+bar +archive -inbox<Enter><tag-prefix><tag-entry><sync-mailbox>"
+
+
 # sidebar
 set sidebar_width   = 18
 set sidebar_visible = no               # set to "no" to disable sidebar view at startup
