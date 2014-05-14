@@ -10,6 +10,7 @@ virtual-mailboxes \
   "All lists" "notmuch://?query=folder:in boxAND tag:lists AND folder:in AND NOT tag:archive" \
   "--- Archives ---" "notmuch://?query=tag:none-arch" \
   "All"   "notmuch://?query=tag:archive" \
+  "Sport"   "notmuch://?query=tag:sport" \
   "Done"  "notmuch://?query=folder:Paris13 AND (tag:archive OR NOT folder:in) AND tag:todo" \
   "Archives13" "notmuch://?query=tag:archive and date:01/01/13..12/31/13"\
   "Archives14" "notmuch://?query=tag:archive and date:01/01/14.."\

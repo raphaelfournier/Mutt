@@ -15,6 +15,7 @@ macro index B   "<limit>~b "                "search message bodies"
 macro index \Cf "<limit>~F<enter><current-middle>"
 macro index \Ca "<limit>all<enter><current-middle>"
 macro index \Cw "<limit>!~F<enter><current-middle>"
+macro index \Ce "<limit>!~s SLURM<enter><current-middle>"
 macro attach s <save-entry><kill-line>~/Mail/Attachments/ "save attachments in ~/Mail/Attachments" 
 bind index zt current-top
 bind index zz current-middle

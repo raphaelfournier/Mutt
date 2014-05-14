@@ -13,29 +13,25 @@
 
 # general-doesn't-fit stuff
 color normal     color188 color237
-color error      color174 color237
-color message    color223 color237
-color markers    color142 color237
-color tilde      color108 color237 # ~'s after message body
-color signature  color188 color236
-color attachment color111 color236 #Add-ons to the message
-#color attachment color175 color236 #Add-ons to the message
-color status     black color242
+color error      color115 color236
+color markers    color142 color238
+color tilde      color108 color237
+color status     color144 color234
 
 # index stuff
 color indicator  color108 color236
-color tree       color116 color237
+color tree       color109 color237
 #color index      color188 color237 ~A # all messages
 #color index      color188 color237 ~N
 # ligne modifiee ci dessous
 color index      color246 color237 ~Q # replied messages
-color index      color144 color237 "(~d >10d ! ~Q ! ~l)" # unreplied messages
-color index      color143 color237 "(~d >30d ! ~Q ! ~l)" # unreplied messages
-color index      color142 color237 "(~d >60d ! ~Q ! ~l)" # unreplied messages
-color index      color108 color237 ~P # from me
-color index      color174 color237 ~F # flagged
+color index      color225 color237 "(~d >10d ! ~Q ! ~l)" # unreplied messages
+color index      color213 color237 "(~d >30d ! ~Q ! ~l)" # unreplied messages
+color index      color226 color237 "(~d >60d ! ~Q ! ~l)" # unreplied messages
+color index      color150 color237 ~P # from me
 color index      color223 color237 ~N # new messages
-color index      color116 color237 ~N~l # new messages from list
+color index      color153 color237 ~N~l # new messages from list
+color index      color174 color237 ~F # flagged
 #color index      color237 color174 ~F # flagged
 color index      color237 color232 ~D # deleted
 color index      color237 color108 ~T # tagged
@@ -58,31 +54,34 @@ color body       color174 color237 "<URL:[^ ]*>"
 color body       color174 color237 "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
 color body       color174 color237 "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
 color body       color174 color237 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-color body       color108 color237 "\\[[0-9]+\\]" 
+
+# misc body stuff
+color attachment color174 color237 #Add-ons to the message
+#color signature  color223 color236
 
 ######################
 # header
 
-color hdrdefault color247    color236 # un peu plus sombre
-color header	color223    color234    '^from:'
-color header	color223    color234    '^list-id:'
-color header	color116    color234    '^(to|cc|bcc):'
-color header	color174    color234    '^date:'
-color header	color108    color234    '^subject:'
-color header  color31     color234    '^user-agent:'
-color header	color29     color234    '^reply-to:'
+color hdrdefault color30    color236 
+color header	color132    color236    '^date:'
+color header	color153    color236    '^(to|cc|bcc):'
+color header	color120    color236    '^from:'
+color header	color178    color236    '^subject:'
+color header    color31     color236    '^user-agent:'
+color header	color29     color236    '^reply-to:'
 
 # quote levels
-color quoted     color108 color237 # vert
-color quoted1    color116 color237 # bleu ciel
-color quoted2    color247 color237 # gris
-color quoted3    color223 color237 # jaune
-color quoted4    color174 color237 # rouge
-color quoted5    color144 color237 # 
+color quoted     color108 color237
+color quoted1    color116 color237
+color quoted2    color108 color237
+color quoted3    color116 color237
+color quoted4    color247 color237
+color quoted5    color247 color237
 color quoted6    color108 color237
 color quoted7    color116 color237
 color quoted8    color247 color237
 color quoted9    color108 color237
+
 
 #Usage: color object foreground background  [ regexp ]
 #Usage: color index foreground background pattern
@@ -133,4 +132,3 @@ color quoted9    color108 color237
 #color index_subject color108 color234 ~A
 #color index_flags   color40   color234
 #color index_subject color178 color236 "\\[ammico\\]"
-#
