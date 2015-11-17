@@ -1,4 +1,4 @@
-macro index,pager <F11> "\
+macro index,pager \Co "\
 <enter-command> set my_pipe_decode=\$pipe_decode my_wait_key=\$wait_key \
 pipe_decode=no wait_key=no<enter>\
 <pipe-message> viewhtmlmsg<enter>\

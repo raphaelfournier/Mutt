@@ -2,15 +2,16 @@
 # RFS specific options
 ###
 
-color status blue white
+color status white blue 
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- RFS --(%s/%S)-- (%P) ----"
 
 set from      = "raphael@fournier-sniehotta.fr"
 set sendmail  = "/usr/bin/msmtp -a rfs"
 set mbox      = "+RFS/Archives"
-set record    = "+RFS/Sent"
+set record    = "+RFS/Archives"
 set postponed = "+RFS/Drafts"
 set signature = "~/.mutt/rfs.signature"                           # my signature file
 
-save-hook "~C @.*sniehotta.fr" =RFS/Archives/
+save-hook "~C raphael@fournier-sniehotta.fr" "=CNAM/Archives/"
+save-hook . "+RFS/Archives/"
 macro index za   "<shell-escape>/usr/bin/offlineimap -a RFS -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

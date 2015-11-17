@@ -14,8 +14,13 @@
 macro index B   "<limit>~b "                "search message bodies"
 macro index \Cf "<limit>~F<enter><current-middle>"
 macro index \Ca "<limit>all<enter><current-middle>"
+macro index \Cv "<limit>~N<enter><current-middle>"
 macro index \Cw "<limit>!~F<enter><current-middle>"
-macro index \Ce "<limit>!~s SLURM<enter><current-middle>"
+# paris 13 specifique
+#macro index \Ce "<limit>!~s SLURM<enter><current-middle>"
+
+macro index \Ce "<limit>!~P<enter><current-middle>"
+
 macro attach s <save-entry><kill-line>~/Mail/Attachments/ "save attachments in ~/Mail/Attachments" 
 bind index zt current-top
 bind index zz current-middle
@@ -34,20 +39,17 @@ macro pager,index,generic ,t        ":set sendmail=\"/usr/sbin/sendmail raph\""
 macro pager,index,generic ,e        "<enter-command>push <mail><enter>todo<enter>"
 macro pager,index,generic ,n      "<limit>~N<enter><current-middle>"
 macro pager,index,generic <f1>      "!links /usr/share/doc/mutt/manual.html" "Show Mutt documentation"
-macro pager,index,generic <f2>      ":set sendmail=\"/usr/bin/msmtp -a paris13\""
-macro pager,index,generic <f3>      ":set sendmail=\"/usr/bin/msmtp -a lip6-ext\""
-macro pager,index,generic <f4>      ":set sendmail=\"/usr/bin/msmtp -a lavabit\""
-macro pager,index,generic <f5>      "<change-folder>+Paris13/INBOX<enter>"
-macro pager,index,generic <f6>     "<change-folder>+Paris13/Archives<enter>"
-#macro pager,index,generic <f6>      "<change-folder>+Lip6/INBOX<enter>"
-#macro pager,index,generic ,<f6>     "<change-folder>+Lip6/Archives<enter>"
-#macro pager,index,generic <esc><f6> "<change-folder>+Lip6/Sent<enter>"
-macro pager,index,generic ,<f7>     "<change-folder>+Lavabit/Archive<enter>"
-macro pager,index,generic <esc><f7> "<change-folder>+Lavabit/Sent<enter>"
-macro pager,index,generic ,<f8>     "<change-folder>+Rfnet/Archives<enter>"
-macro pager,index,generic <f8>      "<change-folder>+Rfnet/INBOX<enter>"
-macro pager,index,generic <esc><f8> "<change-folder>+Rfnet/Sent<enter>"
-macro pager,index,generic <f9>      "<change-folder>+Rfnet/MLEnsica<enter>"
+macro index,compose ,c      ":set sendmail=\"/usr/bin/msmtp -a cnam\""
+macro compose ,l      ":set sendmail=\"/usr/bin/msmtp -a lip6-ext\""
+macro compose ,p      ":set sendmail=\"/usr/bin/msmtp -a paris13\""
+
+macro pager,index,generic ,g      "<change-folder>+RFS/INBOX<enter>"
+macro pager,index,generic ,h     "<change-folder>+RFS/Archives<enter>"
+macro pager,index,generic ,j      "<change-folder>+CNAM/INBOX<enter>"
+macro pager,index,generic ,k     "<change-folder>+CNAM/Archives<enter>"
+macro pager,index,generic ,l      "<change-folder>+Rfnet/INBOX<enter>"
+macro pager,index,generic ,m     "<change-folder>+Rfnet/Archives<enter>"
+macro pager,index,generic ,ù      "<change-folder>+Rfnet/MLEnsica<enter>"
 ######################################
 
 ######################################
@@ -115,3 +117,21 @@ macro index ,f \
 #set confirmappend=\$my_confirmappend resolve=\$my_resolve \
 #&my_confirmappend &my_resolve<enter>"
 macro compose v "<edit-from>^Uidentity.<tab>" "Select from" 
+
+#macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+#macro index,pager ,b "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+#<enter-command> unset pipe_decode<enter>\
+#<pipe-message>extract_url<enter>\
+#<enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
+
+#macro index,pager ,B "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+#<enter-command> set pipe_decode<enter>\
+#<pipe-message>extract_url<enter>\
+#<enter-command> set pipe_decode=\$my_pdsave<enter>" "decrypt message, then get URLs"
+
+#macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+#macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+#message-hook .  'macro index,pager \cb ,b "URL viewer"'
+#message-hook ~G 'macro index,pager \cb ,B "URL viewer"'

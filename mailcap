@@ -2,15 +2,18 @@
 application/x-java-jnlp-file;/opt/java/jre/bin/javaws %s
 #text/html; opera '%s'; description=HTML Text; test=test -n "$DISPLAY"; needsterminal
 #text/calendar; /usr/bin/firefox %s;
-text/html; /usr/bin/firefox %s;
+text/html; /usr/bin/firefox %s; print=/usr/bin/chromium %s
 text/html; lynx -dump -assume_charset=%{charset} -display_charset=utf-8 %s; copiousoutput; nametemplate=%s.html
 text/calendar; /usr/bin/gcalcli import -v %s;
-application/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+(null)/pdf; /usr/bin/zathura %s; /usr/bin/zathura %s; test=test "$DISPLAY" != "";
+*/pdf; /usr/bin/zathura %s; /usr/bin/zathura %s; test=test "$DISPLAY" != "";
+application/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf; print=/usr/bin/acroread %s
+image/pdf; /usr/bin/zathura %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf; print=/usr/bin/acroread %s
+
 #application/pdf; /usr/bin/evince %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
-image/gif; firefox %s
-image/*; feh %s
 video/*; mplayer %s
 audio/*; mplayer %s
+image/*; feh %s
 #
 #application/ics; mutt-ical.py -i -e "raphael@raphaelfournier.net" %s
 #

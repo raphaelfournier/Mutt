@@ -19,7 +19,7 @@ set query_command = "lbdbq '%s'"
 # main options
 set mbox_type           = Maildir                               # mailbox type
 set folder              = ~/Mail                                # mailbox location
-set spoolfile           = "+Paris13/INBOX"                        #  default inbox
+set spoolfile           = "+CNAM/INBOX"                        #  default inbox
 set timeout             = 1800                                  # idle time before scanning
 set mail_check          = 0                                     # minimum time between scans
 set sort_alias          = alias                                 # sort alias file by alias
@@ -34,6 +34,9 @@ set beep_new                                                    # bell on new ma
 set thorough_search                                             # strip headers and eval mimes before searching
 set recall = no
 
+set rfc2047_parameters=yes
+set allow_8bit  
+
 # index options
 set sort                = threads                               # like gmail 
 #set sort_aux            = reverse-last-date-received            # like gmail
@@ -46,9 +49,12 @@ set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 #set pager_context       = 5                                     # number of context lines to show
 #set pager_stop                                                  # don't go to next message automatically
 set menu_scroll                                                 # scroll in menus 
+
+set markers=no
+set wrap=80
 set smart_wrap                                                  # don't split words
+
 set tilde                                                       # show tildes like in vim
-unset markers                                                   # no ugly plus signs
 auto_view text/html                                             # view html automatically
 auto_view text/calendar
 alternative_order text/plain text/enriched text/html            # save html for last
@@ -56,13 +62,16 @@ set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 
 # formats
 set date_format         = "%d/%m/%y %R"
-set index_format        = "%4C %Z %D %-20.20F %?y?[%.20Y] ?%s %*  %4c"
+#set index_format        = "%4C %Z %D %-20.20F %?y?[%.20Y] ?%s %*  %X %4c"
+set index_format        = "%4C %Z %D %-20.20F %?y?[%.20Y] ?%s %*  %X %4c"
 #set index_format        = "%4C %Z %{%b %d} %-15.15L (%4c) %s"
 #
 set folder_format="%2C %t %N %f %> %4s %d" 
 #set folder_format="%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f" # default
 #set status_format       = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>- (%P) ---"
 set alias_format        = "%4n %t %-20a  %r"
+set attach_format       = "%u%D%I %t%4n %T%d%> [%.7m/%.10M, %.6e%?C?, %C?, %s] "
+set pager_format        = "-%Z- %C/%m: %-20.20n   %s%* %4c -- (%P)"
 
 # composing mail
 set realname            = "Raphaël Fournier-S'niehotta"         # who am i?
@@ -79,6 +88,9 @@ set forward_format      = "Re: %s"       # format for subject when forwarding
 set forward_decode                        # decode when forwarding
 set mime_forward=yes
 set mime_forward_rest=yes
+set sendmail  = "/usr/bin/msmtp -a cnam"
+set record    = "+CNAM/Archives/"
+set from      = "fournier@cnam.fr"
 
 set attribution         = "\n\nLe %d, %n a écrit:"          # set the attribution
 set reply_to                              # reply to Reply to: field
@@ -86,7 +98,7 @@ set reverse_name                          # reply as whomever it was to
 set include                               # include message in replies
 set forward_quote                         # include message in forwards
 set reverse_name = yes
-alternates raphael.fournier@complexnetworks.lip6.fr|raphael@raphaelfournier.net|fournier@lavabit.com|raphael@fournier-sniehotta.fr|raphael.fournier@lip6.fr
+alternates raphael.fournier@complexnetworks.lip6.fr|raphael@raphaelfournier.net|fournier@lavabit.com|raphael@fournier-sniehotta.fr|raphael.fournier@lip6.fr|fournier@cnam.fr|raphael.fournier@univ-paris13.fr|raphael.fournier_s_niehotta@cnam.fr|raphael@getlovepulse.com
 
 # headers to show
 ignore *                                                        # ignore all headers
@@ -97,18 +109,19 @@ hdr_order date from list-id to cc subject    # and in this order
 #mailboxes "/var/spool/mail/raph"
 mailboxes "~/Mail/Templates"
 #mailboxes `find ~/Mail/Lip6/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|201.\/" |xargs`
-mailboxes `find ~/Mail/Lavabit/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
+#mailboxes `find ~/Mail/Lavabit/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Archives\|Spam" |xargs`
-#mailboxes `find ~/Mail/RFS/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
+mailboxes `find ~/Mail/RFS/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 #mailboxes `find ~/Mail/Yahoo/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 #mailboxes `find ~/Mail/GMX/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
-mailboxes `find ~/Mail/Paris13/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
+#mailboxes `find ~/Mail/Paris13/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
+mailboxes `find ~/Mail/CNAM/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
 
 source ~/.mutt/muttrc.bindings
 #source ~/.mutt/muttrc.notmuch
 source $alias_file                                              # required for functionality
 source ~/.mutt/gpg.muttrc
-source ~/.mutt/paris13.muttrc                                      # defaut account
+#source ~/.mutt/paris13.muttrc                                      # defaut account
 source ~/.mutt/colors/colors.zenburn`echo $TERM | sed "s:.*-::"`
 #
 #source ~/.mutt/colors.vimbrant
@@ -123,23 +136,40 @@ source ~/.mutt/colors/colors.zenburn`echo $TERM | sed "s:.*-::"`
 # account specific sources
 folder-hook Lip6/* source ~/.mutt/lip6.muttrc
 folder-hook Lavabit/* source ~/.mutt/lavabit.muttrc
+folder-hook CNAM/* source ~/.mutt/cnam.muttrc
 folder-hook Rfnet/* source ~/.mutt/rfnet.muttrc
 folder-hook RFS/* source ~/.mutt/rfs.muttrc
 folder-hook Paris13/* source ~/.mutt/paris13.muttrc
 folder-hook GMX/* source ~/.mutt/gmx.muttrc
 folder-hook . "push <last-entry><current-middle>"
 
-set charset="utf-8"
-charset-hook ^us-ascii$ cp1252
-charset-hook ^iso-8859-1$ cp1252
-set assumed_charset="cp1252"
+#charset-hook ^us-ascii$ cp1252
+##charset-hook ^iso-8859-1$ cp1252
+#set assumed_charset="cp1252"
 
-# ???
+charset-hook US-ASCII     ISO-8859-1
+charset-hook x-unknown    ISO-8859-1
+charset-hook windows-1250 CP1250
+charset-hook windows-1251 CP1251
+charset-hook windows-1252 CP1252
+charset-hook windows-1253 CP1253
+charset-hook windows-1254 CP1254
+charset-hook windows-1255 CP1255
+charset-hook windows-1256 CP1256
+charset-hook windows-1257 CP1257
+charset-hook windows-1258 CP1258
+
+
 attachments   +A */.*
 attachments   -A text/x-vcard application/pgp.*
 attachments   -A application/x-pkcs7-.*
-attachments   +I text/plain
 attachments   -A message/external-body
 attachments   -I message/external-body
+attachments   +I text/plain
+
+#attachments   +I */.*
+#attachments   +I */.*
+#attachments   +I image/*
 
 set mime_forward_rest=ask-yes # forward attachments w/o autoview from attmenu
+set charset="utf-8"
