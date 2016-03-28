@@ -12,6 +12,10 @@ set record    = "+RFS/Archives"
 set postponed = "+RFS/Drafts"
 set signature = "~/.mutt/rfs.signature"                           # my signature file
 
-save-hook "~C raphael@fournier-sniehotta.fr" "=CNAM/Archives/"
+save-hook "~f info@massdrop.com" "=Archives/MailingLists/"
 save-hook . "+RFS/Archives/"
+
+subscribe swiftparis-announce@meetup.com
+
 macro index za   "<shell-escape>/usr/bin/offlineimap -a RFS -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+folder-hook RFS/ "push <last-entry><current-middle>"

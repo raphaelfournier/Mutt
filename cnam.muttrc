@@ -3,7 +3,6 @@
 ###
 
 color status black green
-#color status white color88
 set status_format = "[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>-- CNAM --(%s/%S)-- (%P) ----"
 
 set from      = "fournier@cnam.fr"
@@ -14,21 +13,9 @@ set record    = "+CNAM/Archives/"
 set postponed = "+CNAM/Drafts/"
 set signature = "~/.mutt/cnam.signature"                           # my signature file
 
-save-hook "(~f @meetup.com|~C @meetup)" =Archives/MailingLists
-save-hook "~f redaction@curaterz.fr" "=Archives/MailingLists/"
-save-hook "~f newsletters@cinematheque.fr" "=Archives/MailingLists/"
-save-hook "~f lenny@lennyletter.com" "=Archives/MailingLists/"
-save-hook "~f sam@hustlecon.com" "=Archives/MailingLists/"
-save-hook "~f digest-noreply@quora.com" "=Archives/MailingLists/"
-save-hook "~C @complexnetworks.fr" "=CNAM/Archives/" 
-save-hook "~f @*cnam.fr" "=CNAM/Archives/"
-save-hook "~f delegue@dr2.cnrs.fr" "=CNAM/Archives/"
-save-hook "~f www@tibre.lip6.fr" "=Archives/MAPAPserveur"
-save-hook "~f contact@openedition.org" =Archives/MailingLists
-save-hook "~l" =Archives/MailingLists
-save-hook "~C raphael.fournier@univ-paris13.fr|~C raphael.fournier@.*lip6.fr" "=CNAM/Archives/"
 save-hook . "+CNAM/Archives/"
 
-subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr debats@lautre.net tuppervim@mozfr.org agenda@lists.ps18jbc.fr moodleforum165@www.moodle-cri.org federations@parti-socialiste.fr evenements@lists.parinux.org info@meetup.com newsletters@artips.eu mutt-kz@lists.fedoraproject.org actualites@iscc.cnrs.fr paris@lists.fsfe.org flood@complexnetworks.fr tous@complexnetworks.fr up13-personnels@listes.univ-paris13.fr contact@openedition.org talks@caliop.net dev-decentralization@lists.mozilla.org magi-users@listes.univ-paris13.fr seminaire-iscc@services.cnrs.fr codes-sources@googlegroups.com asr-forum@cines.fr w2s@lists.lacantine.org l2ti@zabra.l2ti.univ-paris13.fr image@zabra.l2ti.univ-paris13.fr tout-lip6@lip6.fr all@madics.fr annonces@madics.fr
+subscribe fabelier@googlegroups.com tmplab@lists.tmplab.org adherents@ps-paris13est.org campagne@francoishollande.fr contact@martineaubry.fr discussions@lifehacking.fr discussion@laquadrature.net email@news.voyageprive.com annonce@amazon.fr debats@lautre.net tuppervim@mozfr.org agenda@lists.ps18jbc.fr moodleforum165@www.moodle-cri.org federations@parti-socialiste.fr evenements@lists.parinux.org info@meetup.com newsletters@artips.eu mutt-kz@lists.fedoraproject.org actualites@iscc.cnrs.fr paris@lists.fsfe.org flood@complexnetworks.fr tous@complexnetworks.fr up13-personnels@listes.univ-paris13.fr contact@openedition.org talks@caliop.net dev-decentralization@lists.mozilla.org magi-users@listes.univ-paris13.fr seminaire-iscc@services.cnrs.fr codes-sources@googlegroups.com asr-forum@cines.fr w2s@lists.lacantine.org l2ti@zabra.l2ti.univ-paris13.fr image@zabra.l2ti.univ-paris13.fr tout-lip6@lip6.fr all@madics.fr annonces@madics.fr lettre@groups.openedition.org lettre-owner@groups.openedition.org
 
 macro index za   "<shell-escape>/usr/bin/offlineimap -a CNAM -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+folder-hook CNAM/ "push <last-entry><current-middle>"

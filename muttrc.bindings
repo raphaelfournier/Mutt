@@ -13,13 +13,12 @@
 # macros
 macro index B   "<limit>~b "                "search message bodies"
 macro index \Cf "<limit>~F<enter><current-middle>"
-macro index \Ca "<limit>all<enter><current-middle>"
-macro index \Cv "<limit>~N<enter><current-middle>"
+macro index \Ca "<limit>all<enter>oi<current-middle>"
+macro index \Cv "<limit>~N<enter>oa<current-middle>"
 macro index \Cw "<limit>!~F<enter><current-middle>"
+macro index \Ce "<limit>!~P<enter><current-middle>"
 # paris 13 specifique
 #macro index \Ce "<limit>!~s SLURM<enter><current-middle>"
-
-macro index \Ce "<limit>!~P<enter><current-middle>"
 
 macro attach s <save-entry><kill-line>~/Mail/Attachments/ "save attachments in ~/Mail/Attachments" 
 bind index zt current-top
@@ -31,6 +30,7 @@ bind pager,index P print-message # eviter les print intempestifs
 bind pager,index p search-opposite
 bind pager,index '"' pipe-message
 macro pager,index c <change-folder>=
+macro index,pager ,S "<enter-command>unset resolve<enter><clear-flag>N<tag-prefix>s<enter><enter-command>set resolve<enter><delete-message>"
 ######################################
 
 ######################################
@@ -50,6 +50,7 @@ macro pager,index,generic ,k     "<change-folder>+CNAM/Archives<enter>"
 macro pager,index,generic ,l      "<change-folder>+Rfnet/INBOX<enter>"
 macro pager,index,generic ,m     "<change-folder>+Rfnet/Archives<enter>"
 macro pager,index,generic ,ù      "<change-folder>+Rfnet/MLEnsica<enter>"
+macro pager,index,generic ,*      "<change-folder>+Archives/MailingLists<enter>"
 ######################################
 
 ######################################

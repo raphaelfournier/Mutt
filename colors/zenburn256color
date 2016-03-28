@@ -32,10 +32,51 @@ color tree       color116 color237
 color index      color237 color221 ~N # new messages
 color index      color116 color237 ~l # messages from list
 color index      color237 color116 ~N~l # new messages from list
-color index      color118 color237 "(~f @twitter.com ~t raphael@fournier-sniehotta.fr)"
-color index      color237 color118 "(~N ~f @twitter.com ~t raphael@fournier-sniehotta.fr)"
-color index      color168 color237 "(~f @twitter.com ~t foobarbaz@fournier-sniehotta.fr)"
-color index      color237 color168 "(~N ~f @twitter.com ~t foobarbaz@fournier-sniehotta.fr)"
+# other lists
+#color index      color116 color237 "~C jgiavelli@yahoo.fr | ~C didier.bernard1@free.fr"
+#color index      color237 color116 "~N ~C jgiavelli@yahoo.fr | ~N ~C didier.bernard1@free.fr"
+
+color index      color116 color237 "~f @hustlecon.com"
+color index      color237 color116 "~N ~f @hustlecon.com"
+color index      color116 color237 "~f @jacquesdemeter.fr"
+color index      color237 color116 "~N ~f @jacquesdemeter.fr"
+color index      color116 color237 "(~C @meetup.com|~N ~f @meetup.com)"
+color index      color237 color116 "(~N ~C @meetup.com|~N ~f @meetup.com)"
+color index      color116 color237 "(~C @kaggle.com|~N ~f @kaggle.com)"
+color index      color237 color116 "(~N ~C @kaggle.com|~N ~f @kaggle.com)"
+color index      color116 color237 "~f redaction@curaterz.fr"
+color index      color237 color116 "~N ~f redaction@curaterz.fr"
+color index      color116 color237 "~f newsletters@cinematheque.fr"
+color index      color237 color116 "~N ~f newsletters@cinematheque.fr"
+color index      color116 color237 "~f newsletters@coach.me"
+color index      color237 color116 "~N ~f newsletters@coach.me"
+color index      color116 color237 "~f lenny@lennyletter.com"
+color index      color237 color116 "~N ~f lenny@lennyletter.com"
+color index      color116 color237 "~f digest-noreply@quora.com"
+color index      color237 color116 "~N ~f digest-noreply@quora.com"
+color index      color116 color237 "~f contact@jogg.in"
+color index      color237 color116 "~N ~f contact@jogg.in"
+color index      color116 color237 "~f slatepartitiou@gmail.com"
+color index      color237 color116 "~N ~f slatepartitiou@gmail.com"
+color index      color116 color237 "~f info@massdrop.com"
+color index      color237 color116 "~N ~f info@massdrop.com"
+color index      color116 color237 "~f contact@openedition.org"
+color index      color237 color116 "~N ~f contact@openedition.org"
+color index      color116 color237 "~f mairie-treizeinfos@paris.fr"
+color index      color237 color116 "~N ~f mairie-treizeinfos@paris.fr"
+color index      color116 color237 "~f coladadata@gmail.com"
+color index      color237 color116 "~N ~f coladadata@gmail.com"
+
+color index      color132 color237 "(~f @twitter.com ~t raphael@fournier-sniehotta.fr)"
+color index      color237 color132 "(~N ~f @twitter.com ~t raphael@fournier-sniehotta.fr)"
+color index      color24 color237 "(~f @twitter.com ~t foobarbaz@fournier-sniehotta.fr)"
+color index      color188 color24 "(~N ~f @twitter.com ~t foobarbaz@fournier-sniehotta.fr)"
+color index      color30 color237  "(~f @twitter.com ~t scstwit@raphaelfournier.net)"
+color index      color237 color30  "(~N ~f @twitter.com ~t scstwit@raphaelfournier.net)"
+color index      color61 color237 "(~f @facebookmail.com ~t raphael@fournier-sniehotta.fr)"
+color index      color237 color61 "(~N ~f @facebookmail.com ~t raphael@fournier-sniehotta.fr)"
+color index      color188 color237 "(~t @getlovepulse.com)"
+color index      color188 color22 "(~N ~t @getlovepulse.com)"
 color index      color144 color237 "(~d >10d ! ~Q ! ~l ! ~N)" # unreplied messages
 color index      color143 color237 "(~d >30d ! ~Q ! ~l ! ~N)" # unreplied messages
 color index      color142 color237 "(~d >60d ! ~Q ! ~l ! ~N)" # unreplied messages
@@ -90,54 +131,3 @@ color quoted6    color108 color237
 color quoted7    color116 color237
 color quoted8    color247 color237
 color quoted9    color108 color237
-
-#Usage: color object foreground background  [ regexp ]
-#Usage: color index foreground background pattern
-#Usage: uncolor index pattern [ pattern ... ]
-#
-#If your terminal supports color, you can spice up Mutt by creating your own color scheme. To define the color of an object (type of information), you must specify both a foreground color and a background color (it is not possible to only specify one or the other).
-#
-#object can be one of:
-#
-#    * attachment
-#    * body (match regexp in the body of messages)
-#    * bold (hiliting bold patterns in the body of messages)
-#    * error (error messages printed by Mutt)
-#    * header (match regexp in the message header)
-#    * hdrdefault (default color of the message header in the pager)
-#    * index (match pattern in the message index)
-#    * indicator (arrow or bar used to indicate the current item in a menu)
-#    * markers (the ``+'' markers at the beginning of wrapped lines in the pager)
-#    * message (informational messages)
-#    * normal
-#    * quoted (text matching $quote_regexp in the body of a message)
-#    * quoted1, quoted2, ..., quotedN (higher levels of quoting)
-#    * search (hiliting of words in the pager)
-#    * signature
-#    * status (mode lines used to display info about the mailbox or message)
-#    * tilde (the ``~'' used to pad blank lines in the pager)
-#    * tree (thread tree drawn in the message index and attachment menu)
-#    * underline (hiliting underlined patterns in the body of messages)
-#
-#foreground and background can be one of the following:
-#
-#    * white
-#    * black
-#    * green
-#    * magenta
-#    * blue
-#    * cyan
-#    * yellow
-#    * red
-#    * default
-#    * colorx
-
-# mutt-kz
-#color index_number  color116 color234
-#color index_date    color47  color234
-#color index_label   color49  color234
-#color index_size    color116 color234
-#color index_subject color108 color234 ~A
-#color index_flags   color40   color234
-#color index_subject color178 color236 "\\[ammico\\]"
-#

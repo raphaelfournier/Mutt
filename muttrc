@@ -46,7 +46,7 @@ set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # pager options
 #set pager_index_lines   = 10                                    # number of index lines to show 
-#set pager_context       = 5                                     # number of context lines to show
+#set pager_context       = 15                                     # number of context lines to show
 #set pager_stop                                                  # don't go to next message automatically
 set menu_scroll                                                 # scroll in menus 
 
@@ -110,7 +110,7 @@ hdr_order date from list-id to cc subject    # and in this order
 mailboxes "~/Mail/Templates"
 #mailboxes `find ~/Mail/Lip6/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|201.\/" |xargs`
 #mailboxes `find ~/Mail/Lavabit/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
-mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Archives\|Spam" |xargs`
+mailboxes `find ~/Mail/Rfnet/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Archives\|Spam\|Professionnel" |xargs`
 mailboxes `find ~/Mail/RFS/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 #mailboxes `find ~/Mail/Yahoo/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xargs`
 #mailboxes `find ~/Mail/GMX/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
@@ -118,12 +118,10 @@ mailboxes `find ~/Mail/RFS/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur" |xarg
 mailboxes `find ~/Mail/CNAM/* -maxdepth 0 -type d | grep -v "tmp\|new\|cur\|Spam" |xargs`
 
 source ~/.mutt/muttrc.bindings
-#source ~/.mutt/muttrc.notmuch
 source $alias_file                                              # required for functionality
 source ~/.mutt/gpg.muttrc
-#source ~/.mutt/paris13.muttrc                                      # defaut account
-source ~/.mutt/colors/colors.zenburn`echo $TERM | sed "s:.*-::"`
-#
+source ~/.mutt/colors/zenburn`echo $TERM | sed "s:.*-::"`
+
 #source ~/.mutt/colors.vimbrant
 #source ~/.mutt/colors/colors.xoria`echo $TERM | sed "s:.*-::"`M
 #echo $TERM | sed "s:.*-::"
@@ -133,15 +131,16 @@ source ~/.mutt/colors/colors.zenburn`echo $TERM | sed "s:.*-::"`
 #source ~/.mutt/colors.default
 #source ~/.mutt/sidebar.muttrc                                   # any muttng options are here
 
-# account specific sources
-folder-hook Lip6/* source ~/.mutt/lip6.muttrc
-folder-hook Lavabit/* source ~/.mutt/lavabit.muttrc
+source ~/.mutt/savehooks
+## account specific sources
+folder-hook RFS/* source ~/.mutt/rfs.muttrc
 folder-hook CNAM/* source ~/.mutt/cnam.muttrc
 folder-hook Rfnet/* source ~/.mutt/rfnet.muttrc
-folder-hook RFS/* source ~/.mutt/rfs.muttrc
-folder-hook Paris13/* source ~/.mutt/paris13.muttrc
-folder-hook GMX/* source ~/.mutt/gmx.muttrc
-folder-hook . "push <last-entry><current-middle>"
+
+#folder-hook Paris13/* source ~/.mutt/paris13.muttrc
+#folder-hook GMX/* source ~/.mutt/gmx.muttrc
+#folder-hook Lip6/* source ~/.mutt/lip6.muttrc
+#folder-hook Lavabit/* source ~/.mutt/lavabit.muttrc
 
 #charset-hook ^us-ascii$ cp1252
 ##charset-hook ^iso-8859-1$ cp1252
@@ -173,3 +172,14 @@ attachments   +I text/plain
 
 set mime_forward_rest=ask-yes # forward attachments w/o autoview from attmenu
 set charset="utf-8"
+
+#Related to your request I have an index macro which limits the display
+#of mail to those messages that contain an attachment:
+#List:       mutt-users
+#Subject:    Re: showing mails with attachment in index
+#From:       Will Fiveash <will.fiveash () oracle ! com>
+#Date:       2015-06-09 16:26:10
+#macro index "_a" "<limit>~h '\^content-type: +multipart/'\n" "Display mail w/attachments"
+
+set allow_ansi = yes
+set display_filter = ~/.mutt/displayhighlight

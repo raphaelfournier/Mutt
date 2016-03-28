@@ -1,0 +1,11 @@
+#!/usr/bin/sed -f
+#
+# Use ANSI sequences to highlight unindented text as *bold* or _underline_.
+# Tries not to underline identifiers containing underlines.
+#   - Cameron Simpson <cs@zip.com.au> 01sep2015
+#
+
+/^[^ 	]/{
+  s/\*\([^* ][^*]*[^* ]\)\*/*[45;m\1[0;m*/g
+  s/\(\s\)_\([^_ ][^_]*[^_ ]\)_\(\s*[,.)]*\)/\1_[42;m\2[0;m_\3/g
+}
